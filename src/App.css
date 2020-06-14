@@ -1,3 +1,10 @@
+:root {
+  --primary-color: #A60000;
+  --title-color: #333333;
+  --text-color: #545454;
+  --container-color: #F0F0F5;
+}
+
 * {
   margin: 0;
   padding: 0;
