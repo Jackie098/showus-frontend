@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FiSearch } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
 
@@ -28,13 +29,13 @@ const Home = () => {
       </header>
 
       <section id="section-ads">
-        <h1>Simples e rápido, você só precisa escolher o que quer comer!!!</h1>
+        <h4>Simples e rápido, você só precisa escolher o que quer comer!!!</h4>
       </section>
 
       <div id="div-search">
         <form>
           <button type="submit">
-            <img src="" alt="search" />
+            <FiSearch size={20} />
           </button>
           <input
             type="text"
@@ -42,11 +43,14 @@ const Home = () => {
             id="company"
             placeholder="Pesquisar empresa"
           />
-
-          {/* <label htmlFor="sort">Organizar por:</label> */}
-          <select name="sort" id="sort" value="Mais recentes">
-            <option value="0">Mais recentes</option>
-          </select>
+          <div id="select-sort">
+            <label>Organizar por:</label>
+            {/* <div className="styled-select"> */}
+            <select name="sort" id="sort" value="Mais recentes">
+              <option value="0">Mais recentes</option>
+            </select>
+            {/* </div> */}
+          </div>
         </form>
       </div>
 
