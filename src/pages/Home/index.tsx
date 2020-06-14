@@ -1,13 +1,18 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+import logo from '../../assets/logo.svg';
+
+import './styles.css';
 
 const Home = () => {
   return (
     <div id="page-home">
       <header>
-        <div>
-          <img src="" alt="Show Us" />
+        <div className="menu-home">
+          <Link to="/">
+            <img src={logo} alt="Show Us" />
+          </Link>
           <ul>
             <li>
               <Link to="/">Início</Link>
@@ -17,7 +22,7 @@ const Home = () => {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="for-contact">
           <Link to="/">Contate-nos</Link>
         </div>
       </header>
@@ -38,7 +43,7 @@ const Home = () => {
             placeholder="Pesquisar empresa"
           />
 
-          <label htmlFor="sort">Organizar por:</label>
+          {/* <label htmlFor="sort">Organizar por:</label> */}
           <select name="sort" id="sort" value="Mais recentes">
             <option value="0">Mais recentes</option>
           </select>

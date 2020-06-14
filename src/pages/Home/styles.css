@@ -1,0 +1,72 @@
+div #page-home header {
+  width: 100%;
+  height: 80px;
+
+  padding: 5px 30px 5px 30px;
+
+  background: var(--primary-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#page-home header div.menu-home {
+  align-items: center;
+  display: flex;
+}
+
+#page-home header div.menu-home a img {
+  height: 100px;
+  width: 100px;
+  padding-top: 20px;
+  margin-right: 25px;
+}
+
+#page-home header div.menu-home ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+#page-home header div.menu-home ul li {
+  margin-left: 20px;
+  color: #FFF;
+  font-weight: bold;
+}
+
+#page-home header div.menu-home ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #FFF;
+}
+
+#page-home header div.menu-home ul li a:hover {
+  border-bottom: 3px solid white;
+  color: var(--title-color);
+  transition: 0.1s;
+}
+
+#page-home header div.for-contact a {
+  height: 40px;
+  width: 110px;
+  min-width: 85px;
+
+  padding: 10px;
+  border-radius: 8px;
+
+  background: white;
+
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-color);
+
+  text-decoration: none;
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+}
+
+#page-home header div.for-contact a:hover {
+  background: #fEfEfE;
+  box-shadow: none;
+}
