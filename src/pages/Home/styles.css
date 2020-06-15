@@ -190,3 +190,106 @@ div #page-home header {
   font-weight: 500;
   color: #BDBDBD;
 }
+
+.container-cards {
+  display: flex;
+
+  justify-content: space-between;
+  max-width: max-content;
+
+  height: 550px;
+  padding: 50px 30px 30px 60px;
+}
+
+.container-cards div.each-card {
+  width: 300px;
+  height: 400px;
+  padding: 30px;
+
+  background: var(--container-color);
+
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container-cards:hover {
+  -webkit-transform: scale(1.01);
+  -moz-transform: scale(1.01);
+  -o-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  transform: scale(1.01);
+
+  cursor: pointer;
+}
+
+.container-cards .each-card div.card-company {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-cards .each-card .card-company img.logo-company {
+  position: absolute;
+
+  margin-top: -130px;
+  height: 45px;
+  width: 45px;
+}
+
+.container-cards .each-card .card-company h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--title-color);
+  margin-top: 15px;
+}
+
+.container-cards .each-card .card-company p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-top: 3px;
+}
+
+.container-cards .each-card .card-informations {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  margin-top: 25px;
+}
+
+.container-cards .each-card .card-informations p {
+  color: var(--text-color);
+  margin-bottom: 5px;
+}
+
+.container-cards .each-card .card-informations span {
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+
+.container-cards .each-card #more-info {
+  display: flex;
+
+  justify-content: flex-end;
+  align-items: center;
+
+  /* width: 110px; */
+  min-width: 108px;
+
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 400;
+  text-align: right;
+
+  margin-bottom: -20px;
+  margin-right: -18px;
+}

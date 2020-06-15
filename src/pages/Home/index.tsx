@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiSearch } from 'react-icons/fi';
+import { FiSearch, FiArrowRight } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
+import LogoCompany from '../../assets/logo_company.svg';
+import WallpaperCompany from '../../assets/wallpaper_card_company.png';
 
 import './styles.css';
 
@@ -44,6 +46,7 @@ const Home = () => {
             placeholder="Pesquisar empresa"
           />
           <div id="select-sort">
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label>Organizar por:</label>
             {/* <div className="styled-select"> */}
             <select name="sort" id="sort" value="Mais recentes">
@@ -55,28 +58,38 @@ const Home = () => {
       </div>
 
       <div className="container-cards">
-        <div className="card-company">
-          <img src="" alt="Logo Crazy Pizza" />
-          <img src="" alt="Papel de Parede" />
-          <h3>Crazy Pizza</h3>
-          <p>A melhor pizza da cidade</p>
-        </div>
+        <div className="each-card">
+          <div className="card-company">
+            <img
+              src={LogoCompany}
+              className="logo-company"
+              alt="Logo da empresa"
+            />
+            <img
+              src={WallpaperCompany}
+              className="wallpaper-card"
+              alt="Papel de Parede"
+            />
+            <h3>Crazy Pizza</h3>
+            <p>A melhor pizza da cidade</p>
+          </div>
 
-        <div className="card-informations">
-          <p>
-            <span>82</span>
-            pedidos
-          </p>
-          <p>
-            <span>34</span>
-            likes
-          </p>
-        </div>
+          <div className="card-informations">
+            <p>
+              <span>82</span>
+              pedidos
+            </p>
+            <p>
+              <span>34</span>
+              likes
+            </p>
+          </div>
 
-        <span>
-          Mais informações
-          <img src="" alt="" />
-        </span>
+          <span id="more-info">
+            Mais informações
+            <FiArrowRight size={18} />
+          </span>
+        </div>
       </div>
 
       <footer>copyright@2020</footer>
