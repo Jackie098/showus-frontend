@@ -194,10 +194,14 @@ div #page-home header {
 .container-cards {
   display: flex;
 
-  justify-content: space-between;
-  max-width: max-content;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-shrink: 1;
 
-  height: 550px;
+  width: max-content;
+  max-width: 1345px;
+
+  max-height: max-content;
   padding: 50px 30px 30px 60px;
 }
 
@@ -205,6 +209,9 @@ div #page-home header {
   width: 300px;
   height: 400px;
   padding: 30px;
+
+  margin-right: 50px;
+  margin-bottom: 50px;
 
   background: var(--container-color);
 
@@ -216,7 +223,7 @@ div #page-home header {
   justify-content: space-between;
 }
 
-.container-cards:hover {
+.container-cards div.each-card:hover {
   -webkit-transform: scale(1.01);
   -moz-transform: scale(1.01);
   -o-transform: scale(1.01);
@@ -292,4 +299,12 @@ div #page-home header {
 
   margin-bottom: -20px;
   margin-right: -18px;
+}
+
+footer {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-color);
+  text-align: center;
+  padding-bottom: 35px;
 }

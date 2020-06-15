@@ -90,6 +90,171 @@ const Home = () => {
             <FiArrowRight size={18} />
           </span>
         </div>
+
+        <div className="each-card">
+          <div className="card-company">
+            <img
+              src={LogoCompany}
+              className="logo-company"
+              alt="Logo da empresa"
+            />
+            <img
+              src={WallpaperCompany}
+              className="wallpaper-card"
+              alt="Papel de Parede"
+            />
+            <h3>Crazy Pizza</h3>
+            <p>A melhor pizza da cidade</p>
+          </div>
+
+          <div className="card-informations">
+            <p>
+              <span>82</span>
+              pedidos
+            </p>
+            <p>
+              <span>34</span>
+              likes
+            </p>
+          </div>
+
+          <span id="more-info">
+            Mais informações
+            <FiArrowRight size={18} />
+          </span>
+        </div>
+
+        <div className="each-card">
+          <div className="card-company">
+            <img
+              src={LogoCompany}
+              className="logo-company"
+              alt="Logo da empresa"
+            />
+            <img
+              src={WallpaperCompany}
+              className="wallpaper-card"
+              alt="Papel de Parede"
+            />
+            <h3>Crazy Pizza</h3>
+            <p>A melhor pizza da cidade</p>
+          </div>
+
+          <div className="card-informations">
+            <p>
+              <span>82</span>
+              pedidos
+            </p>
+            <p>
+              <span>34</span>
+              likes
+            </p>
+          </div>
+
+          <span id="more-info">
+            Mais informações
+            <FiArrowRight size={18} />
+          </span>
+        </div>
+
+        <div className="each-card">
+          <div className="card-company">
+            <img
+              src={LogoCompany}
+              className="logo-company"
+              alt="Logo da empresa"
+            />
+            <img
+              src={WallpaperCompany}
+              className="wallpaper-card"
+              alt="Papel de Parede"
+            />
+            <h3>Crazy Pizza</h3>
+            <p>A melhor pizza da cidade</p>
+          </div>
+
+          <div className="card-informations">
+            <p>
+              <span>82</span>
+              pedidos
+            </p>
+            <p>
+              <span>34</span>
+              likes
+            </p>
+          </div>
+
+          <span id="more-info">
+            Mais informações
+            <FiArrowRight size={18} />
+          </span>
+        </div>
+
+        <div className="each-card">
+          <div className="card-company">
+            <img
+              src={LogoCompany}
+              className="logo-company"
+              alt="Logo da empresa"
+            />
+            <img
+              src={WallpaperCompany}
+              className="wallpaper-card"
+              alt="Papel de Parede"
+            />
+            <h3>Crazy Pizza</h3>
+            <p>A melhor pizza da cidade</p>
+          </div>
+
+          <div className="card-informations">
+            <p>
+              <span>82</span>
+              pedidos
+            </p>
+            <p>
+              <span>34</span>
+              likes
+            </p>
+          </div>
+
+          <span id="more-info">
+            Mais informações
+            <FiArrowRight size={18} />
+          </span>
+        </div>
+
+        {/* <div className="each-card">
+          <div className="card-company">
+            <img
+              src={LogoCompany}
+              className="logo-company"
+              alt="Logo da empresa"
+            />
+            <img
+              src={WallpaperCompany}
+              className="wallpaper-card"
+              alt="Papel de Parede"
+            />
+            <h3>Crazy Pizza</h3>
+            <p>A melhor pizza da cidade</p>
+          </div>
+
+          <div className="card-informations">
+            <p>
+              <span>82</span>
+              pedidos
+            </p>
+            <p>
+              <span>34</span>
+              likes
+            </p>
+          </div>
+
+          <span id="more-info">
+            Mais informações
+            <FiArrowRight size={18} />
+          </span>
+        </div> */}
       </div>
 
       <footer>copyright@2020</footer>
