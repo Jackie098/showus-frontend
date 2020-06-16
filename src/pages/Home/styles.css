@@ -198,11 +198,11 @@ div #page-home header {
   flex-wrap: wrap;
   flex-shrink: 1;
 
-  width: max-content;
+  width: 100%;
   max-width: 1345px;
 
   max-height: max-content;
-  padding: 50px 30px 30px 60px;
+  padding: 50px 120px 30px 120px;
 }
 
 .container-cards div.each-card {

@@ -45,6 +45,7 @@ module.exports = {
       "no-console": "warn",
       "no-eval": "error",
       "import/first": "error",
+      "import/extensions": false,
       "react/jsx-filename-extension": [
         1,
         { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
