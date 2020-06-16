@@ -5,7 +5,7 @@ import { FiSearch, FiArrowRight } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
 import logoCompany from '../../assets/logo_company.svg';
-import wallpaperCompany from '../../assets/wallpaper_card_company.png';
+// import wallpaperCompany from '../../assets/wallpaper_card_company.png';
 
 import './styles.css';
 
@@ -91,171 +91,45 @@ const Home = () => {
       </div>
 
       <div className="container-cards">
-        <div className="each-card">
-          <div className="card-company">
-            <img
-              src={logoCompany}
-              className="logo-company"
-              alt="Logo da empresa"
-            />
-            <img
-              src={wallpaperCompany}
-              className="wallpaper-card"
-              alt="Papel de Parede"
-            />
-            <h3>Crazy Pizza</h3>
-            <p>A melhor pizza da cidade</p>
-          </div>
+        {
+          companyCard.map(card => (
+            <ul>
+              <li key={card.company.id} className="each-card">
+                <div className="card-company">
+                  <img
+                    src={logoCompany}
+                    className="logo-company"
+                    alt="Logo da empresa"
+                  />
+                  <img
+                    src={card.filesCompany.url}
+                    className="wallpaper-card"
+                    alt="Papel de Parede"
+                  />
+                  <h3>{card.company.name}</h3>
+                  <p>{card.company.description}</p>
+                </div>
 
-          <div className="card-informations">
-            <p>
-              <span>82</span>
-              pedidos
-            </p>
-            <p>
-              <span>34</span>
-              likes
-            </p>
-          </div>
+                <div className="card-informations">
+                  <p>
+                    <span>82</span>
+                    pedidos
+                  </p>
+                  <p>
+                    <span>34</span>
+                    likes
+                  </p>
+                </div>
 
-          <span id="more-info">
-            Mais informações
-            <FiArrowRight size={18} />
-          </span>
-        </div>
-
-        <div className="each-card">
-          <div className="card-company">
-            <img
-              src={logoCompany}
-              className="logo-company"
-              alt="Logo da empresa"
-            />
-            <img
-              src={wallpaperCompany}
-              className="wallpaper-card"
-              alt="Papel de Parede"
-            />
-            <h3>Crazy Pizza</h3>
-            <p>A melhor pizza da cidade</p>
-          </div>
-
-          <div className="card-informations">
-            <p>
-              <span>82</span>
-              pedidos
-            </p>
-            <p>
-              <span>34</span>
-              likes
-            </p>
-          </div>
-
-          <span id="more-info">
-            Mais informações
-            <FiArrowRight size={18} />
-          </span>
-        </div>
-
-        <div className="each-card">
-          <div className="card-company">
-            <img
-              src={logoCompany}
-              className="logo-company"
-              alt="Logo da empresa"
-            />
-            <img
-              src={wallpaperCompany}
-              className="wallpaper-card"
-              alt="Papel de Parede"
-            />
-            <h3>Crazy Pizza</h3>
-            <p>A melhor pizza da cidade</p>
-          </div>
-
-          <div className="card-informations">
-            <p>
-              <span>82</span>
-              pedidos
-            </p>
-            <p>
-              <span>34</span>
-              likes
-            </p>
-          </div>
-
-          <span id="more-info">
-            Mais informações
-            <FiArrowRight size={18} />
-          </span>
-        </div>
-
-        <div className="each-card">
-          <div className="card-company">
-            <img
-              src={logoCompany}
-              className="logo-company"
-              alt="Logo da empresa"
-            />
-            <img
-              src={wallpaperCompany}
-              className="wallpaper-card"
-              alt="Papel de Parede"
-            />
-            <h3>Crazy Pizza</h3>
-            <p>A melhor pizza da cidade</p>
-          </div>
-
-          <div className="card-informations">
-            <p>
-              <span>82</span>
-              pedidos
-            </p>
-            <p>
-              <span>34</span>
-              likes
-            </p>
-          </div>
-
-          <span id="more-info">
-            Mais informações
-            <FiArrowRight size={18} />
-          </span>
-        </div>
-
-        <div className="each-card">
-          <div className="card-company">
-            <img
-              src={logoCompany}
-              className="logo-company"
-              alt="Logo da empresa"
-            />
-            <img
-              src={wallpaperCompany}
-              className="wallpaper-card"
-              alt="Papel de Parede"
-            />
-            <h3>Crazy Pizza</h3>
-            <p>A melhor pizza da cidade</p>
-          </div>
-
-          <div className="card-informations">
-            <p>
-              <span>82</span>
-              pedidos
-            </p>
-            <p>
-              <span>34</span>
-              likes
-            </p>
-          </div>
-
-          <span id="more-info">
-            Mais informações
-            <FiArrowRight size={18} />
-          </span>
-        </div>
-      </div>
+                <span id="more-info">
+                  Mais informações
+                  <FiArrowRight size={18} />
+                </span>
+              </li>
+            </ul>
+          ))
+        }
+      </div>}
 
       <footer>copyright@2020</footer>
     </div>

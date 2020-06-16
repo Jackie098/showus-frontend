@@ -205,7 +205,7 @@ div #page-home header {
   padding: 50px 120px 30px 120px;
 }
 
-.container-cards div.each-card {
+.container-cards li.each-card {
   width: 300px;
   height: 400px;
   padding: 30px;
@@ -223,7 +223,7 @@ div #page-home header {
   justify-content: space-between;
 }
 
-.container-cards div.each-card:hover {
+.container-cards li.each-card:hover {
   -webkit-transform: scale(1.01);
   -moz-transform: scale(1.01);
   -o-transform: scale(1.01);
@@ -256,6 +256,8 @@ div #page-home header {
 }
 
 .container-cards .each-card .card-company p {
+  align-content: center;
+  text-align: center;
   font-size: 14px;
   font-weight: 500;
   color: var(--text-color);
