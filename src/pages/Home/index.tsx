@@ -22,13 +22,14 @@ interface CompanyCard {
     createdAt: string;
     updatedAt: string;
   };
-  filesCompany: {
+  filesCompany:
+  {
     url: string;
     name: string;
     path: string;
     size: string;
     wallpaper: boolean;
-  };
+  }
 }
 
 const Home = () => {
@@ -36,6 +37,7 @@ const Home = () => {
 
   useEffect(() => {
     api.get('card').then((response) => {
+
       setCompanyCards(response.data);
     });
   }, []);
@@ -91,45 +93,48 @@ const Home = () => {
       </div>
 
       <div className="container-cards">
-        {
-          companyCard.map(card => (
-            <ul>
-              <li key={card.company.id} className="each-card">
-                <div className="card-company">
-                  <img
-                    src={logoCompany}
-                    className="logo-company"
-                    alt="Logo da empresa"
-                  />
-                  <img
-                    src={card.filesCompany.url}
-                    className="wallpaper-card"
-                    alt="Papel de Parede"
-                  />
-                  <h3>{card.company.name}</h3>
-                  <p>{card.company.description}</p>
-                </div>
+        <ul>
+          {
+            companyCard.map(card => (
 
-                <div className="card-informations">
+              <li key={card.company.name} className="each-card">
+                <Link to="company-details">
+                  <div className="card-company">
+                    <img
+                      src={logoCompany}
+                      className="logo-company"
+                      alt="Logo da empresa"
+                    />
+                    <img
+                      src={card.filesCompany.url}
+                      className="wallpaper-card"
+                      alt="Papel de Parede"
+                    />
+                    <h3>{card.company.name}</h3>
+                    <p>{card.company.description}</p>
+                  </div>
+
+                  {/* <div className="card-informations">
                   <p>
-                    <span>82</span>
-                    pedidos
+                    <span>whastapp</span>
+                    {card.company.whatsapp}
                   </p>
                   <p>
-                    <span>34</span>
-                    likes
+                    <span>instagram</span>
+                    {card.company.instagram}
                   </p>
-                </div>
+                </div> */}
 
-                <span id="more-info">
-                  Mais informações
+                  <span id="more-info">
+                    Mais informações
                   <FiArrowRight size={18} />
-                </span>
+                  </span>
+                </Link>
               </li>
-            </ul>
-          ))
-        }
-      </div>}
+            ))
+          }
+        </ul>
+      </div>
 
       <footer>copyright@2020</footer>
     </div>
