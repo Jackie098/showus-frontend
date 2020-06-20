@@ -28,7 +28,7 @@ const About = () => {
       </header>
       <main>
         <section className="about-us">
-          <div className="content">
+          <div className="content one">
             <h2>Quem somos nós?</h2>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -43,7 +43,7 @@ const About = () => {
           <div className="img"></div>
         </section>
         <section className="about-us">
-          <div className="content">
+          <div className="content two">
             <h2>Quem somos nós?</h2>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -58,7 +58,7 @@ const About = () => {
           <div className="img"></div>
         </section>
         <section className="about-us">
-          <div className="content">
+          <div className="content three">
             <h2>Quem somos nós?</h2>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
