@@ -1,4 +1,4 @@
-div #page-home header {
+div .main-layout header {
   width: 100%;
   height: 80px;
 
@@ -12,43 +12,43 @@ div #page-home header {
   justify-content: space-between;
 }
 
-#page-home header div.menu-home {
+.main-layout header div.menu {
   align-items: center;
   display: flex;
 }
 
-#page-home header div.menu-home a img {
+.main-layout header div.menu a img {
   height: 100px;
   width: 100px;
   padding-top: 20px;
-  margin-right: 25px;
+  /* margin-right: 25px; */
 }
 
-#page-home header div.menu-home ul {
+.main-layout header div.menu ul {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
 }
 
-#page-home header div.menu-home ul li {
+.main-layout header div.menu ul li {
   margin-left: 20px;
   color: #FFF;
   font-weight: bold;
 }
 
-#page-home header div.menu-home ul li a {
+.main-layout header div.menu ul li a {
   text-decoration: none;
   font-size: 18px;
   color: #FFF;
 }
 
-#page-home header div.menu-home ul li a:hover {
+.main-layout header div.menu ul li a:hover {
   border-bottom: 3px solid white;
   color: var(--title-color);
   transition: 0.1s;
 }
 
-#page-home header div.for-contact a {
+.main-layout header div.for-contact a {
   height: 40px;
   width: 110px;
   min-width: 85px;
@@ -67,16 +67,17 @@ div #page-home header {
   box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
 }
 
-#page-home header div.for-contact a:hover {
+.main-layout header div.for-contact a:hover {
   background: #fEfEfE;
   box-shadow: none;
 }
 
-#page-home section#section-ads {
+.main-layout section#section-ads {
   display: flex;
   justify-content: center;
   align-items: center;
 
+  width: 100%;
   height: 100px;
   border-bottom: 1px solid #C5C5C5;
 
@@ -88,22 +89,22 @@ div #page-home header {
   background: var(--container-color);
 }
 
-#page-home section#section-ads h4 {
+.main-layout section#section-ads h4 {
   max-width: 500px;
   text-align: center;
 }
 
-#page-home div#div-search {
+.main-layout div#div-search {
   display: flex;
   justify-content: left;
   align-items: center;
 
-
+  width: 100%;
   height: 100px;
   border-bottom: 1px solid #C5C5C5;
 }
 
-#page-home div#div-search form {
+.main-layout div#div-search form {
   margin-left: 50px;
   width: 520px;
   max-width: 550px;
@@ -113,7 +114,7 @@ div #page-home header {
   align-items: center;
 }
 
-#page-home div#div-search form button {
+.main-layout div#div-search form button {
   height: 33px;
   width: 33px;
   padding: 5px;
@@ -125,19 +126,23 @@ div #page-home header {
   box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
 }
 
-#page-home div#div-search form button:hover {
+.main-layout div#div-search form button:hover {
   box-shadow: none;
   cursor: pointer;
   border: 1px solid var(--primary-color);
 }
 
-#page-home div#div-search form button svg {
+.main-layout div#div-search form button svg {
   color: white;
 }
 
-#page-home div#div-search form input {
+.main-layout div#div-search form input {
   height: 33px;
   padding-left: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  flex-shrink: 1;
 
   background: var(--container-color);
 
@@ -149,28 +154,34 @@ div #page-home header {
   color: var(--text-color);
 }
 
-#page-home div#div-search form input::-webkit-input-placeholder {
+.main-layout div#div-search form input::-webkit-input-placeholder {
   font-size: 14px;
   font-weight: 500;
   color: #BDBDBD;
 }
 
-#page-home div#div-search form input:focus {
+.main-layout div#div-search form input:focus {
   border: 1px solid var(--primary-color);
 }
 
-#page-home div#div-search form div.select-sort {
+.main-layout div#div-search form div.select-sort {
   display: flex;
 }
 
-#page-home div#div-search form label {
+.main-layout div#div-search form label {
   font-size: 14px;
   font-weight: bold;
   color: var(--text-color);
   margin-right: 10px;
 }
 
-#page-home div#div-search form select {
+@media only screen and (max-width:550px){
+  .main-layout div#div-search form label {
+    display: none;
+  }
+}
+
+.main-layout div#div-search form select {
   height: 33px;
   padding-right: 8px ;
 
@@ -185,7 +196,7 @@ div #page-home header {
   padding-left: 15px;
 }
 
-#page-home div#div-search form select::-webkit-select-placeholder{
+.main-layout div#div-search form select::-webkit-select-placeholder{
   font-size: 14px;
   font-weight: 500;
   color: #BDBDBD;

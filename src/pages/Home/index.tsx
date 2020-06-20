@@ -45,9 +45,9 @@ const Home = () => {
   console.log(companyCard);
 
   return (
-    <div id="page-home">
+    <div className="main-layout">
       <header>
-        <div className="menu-home">
+        <div className="menu">
           <Link to="/">
             <img src={logo} alt="Show Us" />
           </Link>

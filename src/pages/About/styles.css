@@ -1,0 +1,151 @@
+div.main-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div .main-layout header {
+  width: 100%;
+  height: 80px;
+
+  padding: 5px 30px 5px 30px;
+
+  background: var(--primary-color);
+  border-bottom: 2px solid var(--text-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-layout header div.menu-home {
+  align-items: center;
+  display: flex;
+}
+
+.main-layout header div.menu-home a img {
+  height: 100px;
+  width: 100px;
+  padding-top: 20px;
+  margin-right: 25px;
+}
+
+.main-layout header div.menu-home ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.main-layout header div.menu-home ul li {
+  margin-left: 20px;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.main-layout header div.menu-home ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #FFF;
+}
+
+.main-layout header div.menu-home ul li a:hover {
+  border-bottom: 3px solid white;
+  color: var(--title-color);
+  transition: 0.1s;
+}
+
+.main-layout header div.for-contact a {
+  height: 40px;
+  width: 110px;
+  min-width: 85px;
+
+  padding: 10px;
+  border-radius: 8px;
+
+  background: white;
+
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-color);
+
+  text-decoration: none;
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+}
+
+.main-layout header div.for-contact a:hover {
+  background: #fEfEfE;
+  box-shadow: none;
+}
+
+main {
+  width: 750px;
+  max-width: 750px;
+  min-width: 300px;
+
+  background: var(--container-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, .20);
+
+  margin: 50px 0 50px 0;
+  padding: 50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 1;
+}
+
+main section.about-us {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.about-us:nth-child(2) {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  text-align: right;
+}
+
+.about-us:last-of-type {
+  margin-bottom: 0px;
+}
+
+.about-us h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--title-color);
+
+  margin-bottom: 25px;
+}
+
+.about-us .content p {
+  max-width: 350px;
+}
+
+/* .about-us .content p:last-of-type {
+  width: 100%;
+  text-align: center;
+} */
+
+.about-us div.img {
+  background: gray;
+
+  width: 188px;
+  height: 171px;
+
+  margin-top: 48px;
+
+  border-radius: 50%;
+}
+
+footer {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-color);
+  text-align: center;
+  padding-bottom: 35px;
+}
