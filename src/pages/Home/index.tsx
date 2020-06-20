@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiSearch, FiArrowRight } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
@@ -34,6 +34,7 @@ interface CompanyCard {
 
 const Home = () => {
   const [companyCard, setCompanyCards] = useState<CompanyCard[]>([]);
+  const history = useHistory();
 
   useEffect(() => {
     api.get('card').then((response) => {
@@ -43,6 +44,18 @@ const Home = () => {
   }, []);
 
   console.log(companyCard);
+
+  function handleClickToLinkDetails(id: number) {
+    try {
+      localStorage.setItem('companyId', id.toString());
+
+      history.push('company-details');
+      return 'company-details';
+    } catch (err) {
+      alert('Erro ao tentar acessar o card.Por favor, recarregue a página!');
+      return '/';
+    }
+  }
 
   return (
     <div className="main-layout">
@@ -97,24 +110,29 @@ const Home = () => {
           {
             companyCard.map(card => (
 
-              <li key={card.company.name} className="each-card">
-                <Link to="company-details">
-                  <div className="card-company">
-                    <img
-                      src={logoCompany}
-                      className="logo-company"
-                      alt="Logo da empresa"
-                    />
-                    <img
-                      src={card.filesCompany.url}
-                      className="wallpaper-card"
-                      alt="Papel de Parede"
-                    />
-                    <h3>{card.company.name}</h3>
-                    <p>{card.company.description}</p>
-                  </div>
+              <li
+                key={card.company.name}
+                className="each-card"
+                onClick={() => handleClickToLinkDetails(card.company.id)}
+              >
+                {/*Add form here*/}
+                {/* <Link to={handleClickToLinkDetails(card.company.id)}> */}
+                <div className="card-company">
+                  <img
+                    src={logoCompany}
+                    className="logo-company"
+                    alt="Logo da empresa"
+                  />
+                  <img
+                    src={card.filesCompany.url}
+                    className="wallpaper-card"
+                    alt="Papel de Parede"
+                  />
+                  <h3>{card.company.name}</h3>
+                  <p>{card.company.description}</p>
+                </div>
 
-                  {/* <div className="card-informations">
+                {/* <div className="card-informations">
                   <p>
                     <span>whastapp</span>
                     {card.company.whatsapp}
@@ -125,11 +143,11 @@ const Home = () => {
                   </p>
                 </div> */}
 
-                  <span id="more-info">
-                    Mais informações
+                <span id="more-info">
+                  Mais informações
                   <FiArrowRight size={18} />
-                  </span>
-                </Link>
+                </span>
+                {/* </Link> */}
               </li>
             ))
           }

@@ -18,37 +18,37 @@ div .main-layout header {
   justify-content: space-between;
 }
 
-.main-layout header div.menu-home {
+.main-layout header div.menu {
   align-items: center;
   display: flex;
 }
 
-.main-layout header div.menu-home a img {
+.main-layout header div.menu a img {
   height: 100px;
   width: 100px;
   padding-top: 20px;
   margin-right: 25px;
 }
 
-.main-layout header div.menu-home ul {
+.main-layout header div.menu ul {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
 }
 
-.main-layout header div.menu-home ul li {
+.main-layout header div.menu ul li {
   margin-left: 20px;
   color: #FFF;
   font-weight: bold;
 }
 
-.main-layout header div.menu-home ul li a {
+.main-layout header div.menu ul li a {
   text-decoration: none;
   font-size: 18px;
   color: #FFF;
 }
 
-.main-layout header div.menu-home ul li a:hover {
+.main-layout header div.menu ul li a:hover {
   border-bottom: 3px solid white;
   color: var(--title-color);
   transition: 0.1s;
@@ -129,7 +129,7 @@ main section.about-us {
 
 .about-us .content p {
   max-width: 350px;
-  min-width: 200px;
+  /* min-width: 200px; */
   color: var(--text-color);
 }
 
