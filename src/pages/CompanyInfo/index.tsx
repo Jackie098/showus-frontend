@@ -29,20 +29,22 @@ const CompanyInfo = () => {
         </div>
       </header>
       <main id="main-info">
-        <section className="section-details">
+        <section className="company-details">
           <div className="information">
             <div className="header-company">
               <img src={logoCompany} alt="Logo da empresa" />
-              <h2>Crazy Pizza</h2>
-              <span>A melhor pizza da cidade</span>
-              <hr />
+              <div id="logo-title">
+                <h4>Crazy Pizza</h4>
+                <span>A melhor pizza da cidade</span>
+              </div>
             </div>
+            <hr />
             <div className="contact">
               <div className="contact-string">
-                <h4>Informações para contato</h4>
+                <h4>Informações para contato:</h4>
                 <div className="contact-datas">
                   <p>
-                    <span>telefone</span>
+                    <span>telefone:</span>
                     (89) 9 9448 4332
                   </p>
                   <p>

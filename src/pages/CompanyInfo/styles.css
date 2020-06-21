@@ -1,0 +1,199 @@
+div.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div .main-container header {
+  width: 100%;
+  height: 80px;
+
+  padding: 5px 30px 5px 30px;
+
+  background: var(--primary-color);
+  border-bottom: 2px solid var(--text-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-container header div.menu {
+  align-items: center;
+  display: flex;
+}
+
+.main-container header div.menu a img {
+  height: 100px;
+  width: 100px;
+  padding-top: 20px;
+  margin-right: 25px;
+}
+
+.main-container header div.menu ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.main-container header div.menu ul li {
+  margin-left: 20px;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.main-container header div.menu ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #FFF;
+}
+
+.main-container header div.menu ul li a:hover {
+  border-bottom: 3px solid white;
+  color: var(--title-color);
+  transition: 0.1s;
+}
+
+.main-container header div.for-contact a {
+  height: 40px;
+  width: 110px;
+  min-width: 85px;
+
+  padding: 10px;
+  border-radius: 8px;
+
+  background: white;
+
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-color);
+
+  text-decoration: none;
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+}
+
+.main-container header div.for-contact a:hover {
+  background: #fEfEfE;
+  box-shadow: none;
+}
+
+main#main-info {
+  width:100%;
+  max-width: 995px;
+
+  background: var(--container-color);
+  border-radius: 8px;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, .2);
+
+  margin-top: 50px;
+  padding: 20px
+}
+
+section.company-details {
+  /* height: 100%; */
+  /* max-height: 500px; */
+
+  margin-bottom: 40px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.company-details div.information {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.5;
+  flex-basis: 400px;
+}
+
+.company-details .information .header-company {
+  display: flex;
+  justify-content: flex-start;
+
+  height: 95px;
+  /* max-height: 144px; */
+  /* width: 350px; */
+  /* max-width: 300px; */
+
+  padding-left:30px;
+
+}
+
+.header-company img {
+  width: 65px;
+  height: 75px;
+
+  border-radius: 35%;
+}
+
+.header-company #logo-title {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  padding-left: 20px;
+}
+
+.header-company #logo-title h4 {
+  color: var(--title-color);
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.header-company #logo-title span {
+  padding-left: 20px;
+
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.company-details .information hr {
+  border: 0.3px solid #C5C5C5;
+}
+
+.company-details .information .contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.company-details .information .contact .contact-string {
+  padding: 20px 15px 15px 15px;
+}
+
+.contact-string h4 {
+  color: var(--title-color);
+  height: 100%;
+  max-width: max-content;
+  font-size: 18px;
+}
+
+.contact-string  div.contact-datas {
+  width: 100%;
+  max-width: 350px;
+  height: 100%;
+  max-height: 200px;
+  margin: 25px 0px 20px 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  /* justify-content: space-between; */
+}
+
+.contact-string  div.contact-datas p {
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 15px;
+
+  color: var(--title-color);
+}
+
+.contact-string .contact-datas p:first-child {
+  margin-top: 0;
+}
+
+.contact-string  div.contact-datas p span {
+  margin-right: 35px;
+}

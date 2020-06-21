@@ -26,7 +26,7 @@ const About = () => {
           <Link to="/">Contate-nos</Link>
         </div>
       </header>
-      <main>
+      <main id="about">
         <section className="about-us">
           <div className="content one">
             <h2>Quem somos nós?</h2>

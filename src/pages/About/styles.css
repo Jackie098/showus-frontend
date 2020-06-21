@@ -78,7 +78,7 @@ div .main-layout header {
   box-shadow: none;
 }
 
-main {
+main#about {
   /* width: 750px; */
   width: 100%;
   max-width: 750px;
@@ -98,7 +98,7 @@ main {
   flex-shrink: 1;
 }
 
-main section.about-us {
+main#about section.about-us {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -147,7 +147,7 @@ main section.about-us {
 }
 
 @media only screen and (max-width: 665px) {
-  main {
+  main#about {
     padding: 50px 10px 50px 10px;
   }
 
