@@ -156,9 +156,12 @@ section.company-details {
 .company-details .information .contact {
   display: flex;
   flex-direction: column;
+
+  align-items: center;
 }
 
 .company-details .information .contact .contact-string {
+  align-self: flex-start;
   padding: 20px 15px 15px 15px;
 }
 
@@ -171,7 +174,7 @@ section.company-details {
 
 .contact-string  div.contact-datas {
   width: 100%;
-  max-width: 350px;
+  max-width: 400px;
   height: 100%;
   max-height: 200px;
   margin: 25px 0px 20px 15px;
@@ -182,18 +185,82 @@ section.company-details {
   /* justify-content: space-between; */
 }
 
-.contact-string  div.contact-datas p {
+.contact-string  div.contact-datas table {
+  /* height: 100%; */
+  height: 100px;
+}
+
+.contact-string  div.contact-datas tr {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.contact-string  div.contact-datas th {
   font-size: 15px;
   font-weight: 500;
-  margin-top: 15px;
+
+  text-align: left;
 
   color: var(--title-color);
 }
 
-.contact-string .contact-datas p:first-child {
+.contact-string .contact-datas th:first-child {
   margin-top: 0;
 }
 
-.contact-string  div.contact-datas p span {
-  margin-right: 35px;
+.contact-string  div.contact-datas td {
+  color: var(--text-color);
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.contact h2 {
+  font-size: 23px;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.contact .contact-button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 350px;
+}
+
+.contact .contact-button a {
+  display: flex;
+
+  width: 100%;
+  max-width: 150px;
+  height: 40px;
+
+  justify-content: center;
+  align-items: center;
+
+
+  border-radius: 8px;
+  text-decoration: none;
+
+  color: #FFF;
+  font-weight: bold;
+}
+
+.contact .contact-button a:hover{
+  opacity: 0.8;
+}
+
+.contact .contact-button a:focus{
+  opacity: 0.4;
+}
+
+.contact .contact-button #btn-whatsapp {
+  background: #34CF74;
+  /* margin-right: 20px; */
+}
+
+.contact .contact-button #btn-instagram {
+  background: #AD36D9;
+  /* margin-left: 20px; */
 }

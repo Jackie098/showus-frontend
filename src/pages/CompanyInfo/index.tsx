@@ -43,24 +43,26 @@ const CompanyInfo = () => {
               <div className="contact-string">
                 <h4>Informações para contato:</h4>
                 <div className="contact-datas">
-                  <p>
-                    <span>telefone:</span>
-                    (89) 9 9448 4332
-                  </p>
-                  <p>
-                    <span>instagram</span>
-                    @crazypizza.oficial
-                  </p>
-                  <p>
-                    <span>e-mail</span>
-                    crazypizza.floriano@gmail.com
-                  </p>
+                  <table>
+                    <tr>
+                      <th>telefone:</th>
+                      <td>(89) 9 9448 4332</td>
+                    </tr>
+                    <tr>
+                      <th>instagram:</th>
+                      <td>@crazypizza.oficial</td>
+                    </tr>
+                    <tr>
+                      <th>e-mail:</th>
+                      <td>crazypizza.floriano@gmail.com</td>
+                    </tr>
+                  </table>
                 </div>
               </div>
               <h2>*FAZER PEDIDO*</h2>
               <div className="contact-button">
-                <div id="btn-whatsapp"></div>
-                <div id="btn-instagram"></div>
+                <Link to="/" id="btn-whatsapp">whatsapp</Link>
+                <Link to="/" id="btn-instagram">instagram</Link>
               </div>
             </div>
           </div>
