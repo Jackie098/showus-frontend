@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiArrowDown } from 'react-icons/fi';
+import { FiArrowDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
 import logoCompany from '../../assets/logo_company.svg';
+import imagePizza from '../../assets/image_pizza.png';
 
 import './styles.css';
 
@@ -67,9 +68,13 @@ const CompanyInfo = () => {
             </div>
           </div>
           <div className="image-carousel">
-            <div className="btn-left"></div>
-            <img src="" alt="Imagens dos produtos da empresa" />
-            <div className="btn-right"></div>
+            <div className="btn-left">
+              <FiChevronLeft size={35} />
+            </div>
+            <img src={imagePizza} alt="Imagens dos produtos da empresa" />
+            <div className="btn-right">
+              <FiChevronRight size={35} />
+            </div>
           </div>
         </section>
         <hr />

@@ -86,25 +86,29 @@ main#main-info {
   border-radius: 8px;
   box-shadow: 0px 4px 25px rgba(0, 0, 0, .2);
 
-  margin-top: 50px;
-  padding: 20px
+  margin: 50px 0;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 section.company-details {
   /* height: 100%; */
   /* max-height: 500px; */
 
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .company-details div.information {
   display: flex;
   flex-direction: column;
   flex-grow: 0.5;
-  flex-basis: 400px;
+  flex-basis: 500px;
 }
 
 .company-details .information .header-company {
@@ -263,4 +267,80 @@ section.company-details {
 .contact .contact-button #btn-instagram {
   background: #AD36D9;
   /* margin-left: 20px; */
+}
+
+.image-carousel {
+  height: 425px;
+  width: 400px;
+  /* margin: 0 10px; */
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+}
+
+.image-carousel .btn-left {
+  height: 40px;
+  width: 40px;
+
+  margin-left: -17px;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+
+  position: absolute;
+}
+
+.image-carousel .btn-left:hover {
+  background: var(--title-color);
+
+  cursor: pointer;
+}
+
+.image-carousel img {
+  height: 425px;
+  width: 400px;
+
+  border-radius: 25px;
+}
+
+.image-carousel .btn-right {
+  height: 40px;
+  width: 40px;
+
+  margin-right: -18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+
+  position: absolute;
+  right: 0;
+}
+
+.image-carousel .btn-right:hover {
+  background: var(--title-color);
+
+  cursor: pointer;
+}
+
+#main-info hr{
+  border: 0.3px solid #C5C5C5;
+}
+
+footer {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-color);
+  text-align: center;
+  padding-bottom: 35px;
 }
