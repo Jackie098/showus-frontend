@@ -4,7 +4,11 @@ div.main-container {
   align-items: center;
 }
 
-/* HEADER */
+/* *
+ * *
+  HEADER
+  * *
+  * */
 
 div .main-container header {
   width: 100%;
@@ -80,11 +84,17 @@ div .main-container header {
   box-shadow: none;
 }
 
-/* BODY - MAIN */
+/* *
+ * *
+  BODY - MAIN
+  * *
+  * */
 
 main#main-info {
   width:100%;
   max-width: 995px;
+
+  /* height: 1000px; */
 
   background: var(--container-color);
   border-radius: 8px;
@@ -108,7 +118,11 @@ section.company-details {
   flex-wrap: wrap;
 }
 
-/* INFORMATION */
+/* *
+ * *
+  INFORMATION
+  * *
+  * */
 
 .company-details div.information {
   display: flex;
@@ -117,7 +131,11 @@ section.company-details {
   flex-basis: 500px;
 }
 
-/* HEADER COMPANY */
+/* *
+ * *
+  HEADER COMPANY
+  * *
+  * */
 
 .company-details .information .header-company {
   display: flex;
@@ -165,7 +183,11 @@ section.company-details {
   border: 0.3px solid #C5C5C5;
 }
 
-/* FOR START CONTACT */
+/* *
+ * *
+  FOR CONTACT
+  * *
+  * */
 
 .company-details .information .contact {
   display: flex;
@@ -234,7 +256,11 @@ section.company-details {
   color: var(--primary-color);
 }
 
-/* WHATSAPP AND INSTAGRAM */
+/* *
+ * *
+  WHATSAPP AND INSTAGRAM
+  * *
+  * */
 
 .contact .contact-button {
   margin-top: 20px;
@@ -281,7 +307,11 @@ section.company-details {
   /* margin-left: 20px; */
 }
 
-/* CAROUSEL */
+/* *
+ * *
+  CAROUSEL
+  * *
+  * */
 
 .image-carousel {
   height: 425px;
@@ -379,6 +409,190 @@ section.company-details {
 #main-info hr{
   border: 0.3px solid #C5C5C5;
 }
+
+/* *
+ * *
+  MENU
+  * *
+  * */
+
+section.company-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 15px 15px 15px;
+
+  /* height: 400px; */
+  /* max-height: 400px; */
+  justify-content: space-between;
+}
+
+.company-menu h3 {
+  color: var(--title-color);
+  height: 100%;
+  max-width: max-content;
+  font-size: 18px;
+
+  margin-bottom: 30px;
+}
+
+.company-menu div.item {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+}
+
+.company-menu div.item div.item-name {
+  background: var(--title-color);
+
+  width:125px;
+  height: 35px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+div.item-name span {
+  color: #FFF;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+div.item-name svg {
+  color: var(--primary-color);
+  font-size: 30px;
+}
+
+div.item-details {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 25px;
+  background: #E5E5E5;
+  border-radius: 8px;
+}
+
+.item-details div.side-left {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/**
+  * TABLE TAGS
+  *
+ */
+.side-left .table-size {
+  max-width: 350px;
+  margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-left .table-size  th {
+  color: var(--title-color);
+}
+
+.side-left .table-size  td {
+  color: var(--text-color);
+}
+
+.side-left .table-size  tr {
+  display: flex;
+  align-items: baseline;
+}
+
+.side-left .table-size  tr td:last-child {
+  color: var(--primary-color);
+}
+
+.side-left .table-size  th,td {
+  font-size: 18px;
+  flex-grow: 1;
+  text-align: center;
+  padding: 5px;
+}
+
+.side-left .table-size  tr th:nth-child(2) {
+  flex-grow: 10;
+}
+
+.side-left .table-size  tr th:last-child {
+  flex-grow: 5;
+}
+
+.side-left .table-size  tr td:nth-child(2) {
+  border-bottom: 1px solid var(--text-color);
+  flex-grow: 2.5;
+}
+/**
+  * TABLE TAGS -- END
+  *
+*/
+
+.side-left div.extra {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-left div.extra h3 {
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--title-color);
+  margin-bottom: 25px;
+}
+
+.side-left div.extra div {
+  height: 145px;
+  max-width: 370px;
+
+  padding: 15px;
+  border-radius: 4px;
+  background: #FFF;
+}
+
+/** LIST OF ITENS **/
+.item-details div.side-right {
+  max-height: 359px;
+  padding: 10px 0 5px 30px;
+  margin-left: 20px;
+  background: #545454;
+  border-radius: 4px;
+  border: 1px solid var(--primary-color);
+
+  color: #FFF;
+  flex-grow: 1.3;
+
+  overflow: auto;
+}
+
+.side-right h4 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.side-right ul {
+  list-style: none;
+}
+
+.side-right li {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.side-right::-webkit-scrollbar {
+  background: var(--title-color);
+}
+
+.side-right::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+/** END OF LIST **/
 
 footer {
   font-size: 14px;

@@ -4,7 +4,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
 import { Link } from 'react-router-dom';
-import { FiArrowDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
 import logoCompany from '../../assets/logo_company.svg';
@@ -111,26 +111,30 @@ const CompanyInfo = () => {
           <h3>Cardápio:</h3>
           <div className="item">
             <div className="item-name">
-              pizzas
-              <FiArrowDown />
+              <span>pizzas</span>
+              <FiChevronDown />
             </div>
             <div className="item-details">
               <div className="side-left">
                 <table className="table-size">
                   <tr>
                     <th>Tamanho</th>
+                    <th></th>
                     <th>Valor</th>
                   </tr>
                   <tr>
                     <td>Pequeno</td>
+                    <td></td>
                     <td>R$ 30,00</td>
                   </tr>
                   <tr>
                     <td>Médio</td>
+                    <td></td>
                     <td>R$ 35,00</td>
                   </tr>
                   <tr>
                     <td>Grande</td>
+                    <td></td>
                     <td>R$ 40,00</td>
                   </tr>
                 </table>
@@ -140,8 +144,25 @@ const CompanyInfo = () => {
                 </div>
               </div>
               <div className="side-right">
+                <h4>Sabores</h4>
                 <ul>
-                  <li><h4>Sabores</h4></li>
+                  <li>carne de sol</li>
+                  <li>calabresa</li>
+                  <li>frango com catupiry</li>
+                  <li>carne de sol com bacon</li>
+                  <li>carne de sol</li>
+                  <li>calabresa</li>
+                  <li>frango com catupiry</li>
+                  <li>carne de sol com bacon</li>
+                  <li>carne de sol</li>
+                  <li>calabresa</li>
+                  <li>frango com catupiry</li>
+                  <li>carne de sol com bacon</li>
+                  <li>carne de sol</li>
+                  <li>calabresa</li>
+                  <li>frango com catupiry</li>
+                  <li>carne de sol com bacon</li>
+                  <li>carne de sol</li>
                   <li>calabresa</li>
                   <li>frango com catupiry</li>
                   <li>carne de sol com bacon</li>
