@@ -78,13 +78,15 @@ const CompanyInfo = () => {
           </div>
           <div className="image-carousel">
             <Carousel
+              interval={8000}
+              transitionTime={1300}
               showIndicators={true}
-              showStatus={false}
+              showStatus={true}
               showThumbs={false}
               emulateTouch={true}
               infiniteLoop={true}
               showArrows={false}
-              autoPlay={false}
+              autoPlay={true}
               className="carousel-container"
               renderArrowPrev={(onClickHandle, hasPrev, label) =>
                 (

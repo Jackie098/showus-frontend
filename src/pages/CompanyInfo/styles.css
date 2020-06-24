@@ -331,8 +331,14 @@ section.company-details {
 .image-carousel .carousel-container ul:first-child {
   height: 425px;
   width: 400px;
+}
 
-  border-radius: 25px;
+.slider-wrapper {
+  border-radius: 24px;
+}
+
+.carousel-status {
+  margin: 15px 15px 0 0;
 }
 
 .image-carousel .btn-right {
