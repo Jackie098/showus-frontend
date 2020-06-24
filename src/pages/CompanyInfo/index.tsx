@@ -14,10 +14,6 @@ import './styles.css';
 
 const CompanyInfo = () => {
 
-  // function handleArrowPrev(clickHandler: hasPrev()) {
-  //   clickHandler.renderArrowPrev();
-  // }
-
   return (
     <div className="main-container">
       <header>
