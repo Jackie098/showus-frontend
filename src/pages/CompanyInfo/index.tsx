@@ -13,6 +13,11 @@ import imagePizza from '../../assets/pizza_2.jpeg';
 import './styles.css';
 
 const CompanyInfo = () => {
+
+  // function handleArrowPrev(clickHandler: hasPrev()) {
+  //   clickHandler.renderArrowPrev();
+  // }
+
   return (
     <div className="main-container">
       <header>
@@ -81,20 +86,26 @@ const CompanyInfo = () => {
               showArrows={false}
               autoPlay={false}
               className="carousel-container"
+              renderArrowPrev={(onClickHandle, hasPrev, label) =>
+                (
+                  <div className="btn-left" onClick={onClickHandle}>
+                    <FiChevronLeft size={35} />
+                  </div>
+                )}
+              renderArrowNext={(onClickHandle, hasNext, label) =>
+                (
+                  <div className="btn-right" onClick={onClickHandle}>
+                    <FiChevronRight size={35} />
+                  </div>
+                )}
             >
               {/* Aparentemente, uma primeira linha sendo um comentário, remove
                 * um erro sobre "elemento não é aceito como React,child" */}
-              <img className="li-container" src={imagePizza} alt="Imagens dos produtos da empresa" />
+              <img src={imagePizza} alt="Imagens dos produtos da empresa" />
               <img src={imagePizza} alt="Imagens dos produtos da empresa" />
               <img src={imagePizza} alt="Imagens dos produtos da empresa" />
               <img src={imagePizza} alt="Imagens dos produtos da empresa" />
             </ Carousel>
-            <div className="btn-left">
-              <FiChevronLeft size={35} />
-            </div>
-            <div className="btn-right">
-              <FiChevronRight size={35} />
-            </div>
           </div>
         </section>
         <hr />
