@@ -1,10 +1,14 @@
 import React from 'react';
+// import ReactDom from 'react-dom';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
+
 import { Link } from 'react-router-dom';
 import { FiArrowDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
 import logoCompany from '../../assets/logo_company.svg';
-import imagePizza from '../../assets/image_pizza.png';
+import imagePizza from '../../assets/pizza_2.jpeg';
 
 import './styles.css';
 
@@ -68,10 +72,26 @@ const CompanyInfo = () => {
             </div>
           </div>
           <div className="image-carousel">
+            <Carousel
+              showIndicators={true}
+              showStatus={false}
+              showThumbs={false}
+              emulateTouch={true}
+              infiniteLoop={true}
+              showArrows={false}
+              autoPlay={false}
+              className="carousel-container"
+            >
+              {/* Aparentemente, uma primeira linha sendo um comentário, remove
+                * um erro sobre "elemento não é aceito como React,child" */}
+              <img className="li-container" src={imagePizza} alt="Imagens dos produtos da empresa" />
+              <img src={imagePizza} alt="Imagens dos produtos da empresa" />
+              <img src={imagePizza} alt="Imagens dos produtos da empresa" />
+              <img src={imagePizza} alt="Imagens dos produtos da empresa" />
+            </ Carousel>
             <div className="btn-left">
               <FiChevronLeft size={35} />
             </div>
-            <img src={imagePizza} alt="Imagens dos produtos da empresa" />
             <div className="btn-right">
               <FiChevronRight size={35} />
             </div>

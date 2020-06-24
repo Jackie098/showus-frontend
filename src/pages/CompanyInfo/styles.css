@@ -302,7 +302,7 @@ section.company-details {
   cursor: pointer;
 }
 
-.image-carousel img {
+.image-carousel .carousel-container ul:first-child {
   height: 425px;
   width: 400px;
 
