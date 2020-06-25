@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import ReactDom from 'react-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
@@ -13,6 +13,25 @@ import imagePizza from '../../assets/pizza_2.jpeg';
 import './styles.css';
 
 const CompanyInfo = () => {
+
+  const [display, setDisplay] = useState('none');
+  const [icon, setIcon] = useState(<FiChevronLeft />);
+
+  const divDisplay = {
+    display: display,
+    // boxShadow: '0 4px 4px rgba(0, 0, 0, .25)',
+  };
+
+  function handleDisplay() {
+    if (display === 'none') {
+      setDisplay('flex');
+      setIcon(<FiChevronDown color={'#A60000'} />);
+
+    } else {
+      setDisplay('none')
+      setIcon(<FiChevronLeft color={'#FFF'} />);
+    }
+  }
 
   return (
     <div className="main-container">
@@ -110,11 +129,14 @@ const CompanyInfo = () => {
         <section className="company-menu">
           <h3>Cardápio:</h3>
           <div className="item">
-            <div className="item-name">
+            <div
+              onClick={() => handleDisplay()}
+              className="item-name">
               <span>pizzas</span>
-              <FiChevronDown />
+              {/* <FiChevronDown /> */}
+              {icon}
             </div>
-            <div className="item-details">
+            <div style={divDisplay} className="item-details">
               <div className="side-left">
                 <table className="table-size">
                   <tr>

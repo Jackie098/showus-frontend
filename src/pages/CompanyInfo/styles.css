@@ -452,6 +452,14 @@ section.company-menu {
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+}
+
+div.item-name:start {
+  box-shadow: 0 0 0;
+  background: red;
 }
 
 div.item-name span {
@@ -461,7 +469,7 @@ div.item-name span {
 }
 
 div.item-name svg {
-  color: var(--primary-color);
+  /* color: var(--primary-color); */
   font-size: 30px;
 }
 
