@@ -14,6 +14,7 @@ import './styles.css';
 
 const CompanyInfo = () => {
 
+  const [id, setId] = useState<number>(2);
   const [display, setDisplay] = useState('none');
   const [shadow, setShadow] = useState('box-shadow: 0 4px 4px rgba(0, 0, 0, .25)');
   const [icon, setIcon] = useState(<FiChevronLeft />);
@@ -22,20 +23,21 @@ const CompanyInfo = () => {
     boxShadow: shadow,
   };
 
-  const divDisplay = {
-    display: display,
-  };
+  const divDisplayed = display === 'flex' ? 'div-display' : 'div-none';
+  const divDisplayNone = display === 'flex' ? 'div-none' : 'div-display';
 
   function handleDisplay() {
     if (display === 'none') {
       setDisplay('flex');
       setIcon(<FiChevronDown color={'#A60000'} />);
       setShadow('inset 4px 4px 10px rgba(0, 0, 0, .25)');
+      // setId(id);
 
     } else {
       setDisplay('none')
       setIcon(<FiChevronLeft color={'#FFF'} />);
       setShadow('0 4px 4px rgba(0, 0, 0, .25)');
+      // setId(-1);
     }
   }
 
@@ -142,7 +144,7 @@ const CompanyInfo = () => {
               <span>pizzas</span>
               {icon}
             </button>
-            <div style={divDisplay} className="item-details">
+            <div className={`item-details ${id === 2 ? divDisplayed : divDisplayNone}`}>
               <div className="side-left">
                 <table className="table-size">
                   <tr>
@@ -198,6 +200,70 @@ const CompanyInfo = () => {
               </div>
             </div>
           </div>
+          {/* <div className="item">
+            <button
+              style={btnShadow}
+              onClick={() => (handleDisplay())}
+              className="item-name">
+              <span>pizzas</span>
+              {icon}
+            </button>
+            <div className={`item-details ${id === 3 ? divDisplayed : divDisplayNone}`}>
+              <div className="side-left">
+                <table className="table-size">
+                  <tr>
+                    <th>Tamanho</th>
+                    <th></th>
+                    <th>Valor</th>
+                  </tr>
+                  <tr>
+                    <td>Pequeno</td>
+                    <td></td>
+                    <td>R$ 30,00</td>
+                  </tr>
+                  <tr>
+                    <td>Médio</td>
+                    <td></td>
+                    <td>R$ 35,00</td>
+                  </tr>
+                  <tr>
+                    <td>Grande</td>
+                    <td></td>
+                    <td>R$ 40,00</td>
+                  </tr>
+                </table>
+                <div className="extra">
+                  <h3>Informações adicionais</h3>
+                  <div>Vem com um guaraná de 2L</div>
+                </div>
+              </div>
+              <div className="side-right">
+                <h4>Sabores</h4>
+                <ul>
+                  <li>carne de sol</li>
+                  <li>calabresa</li>
+                  <li>frango com catupiry</li>
+                  <li>carne de sol com bacon</li>
+                  <li>carne de sol</li>
+                  <li>calabresa</li>
+                  <li>frango com catupiry</li>
+                  <li>carne de sol com bacon</li>
+                  <li>carne de sol</li>
+                  <li>calabresa</li>
+                  <li>frango com catupiry</li>
+                  <li>carne de sol com bacon</li>
+                  <li>carne de sol</li>
+                  <li>calabresa</li>
+                  <li>frango com catupiry</li>
+                  <li>carne de sol com bacon</li>
+                  <li>carne de sol</li>
+                  <li>calabresa</li>
+                  <li>frango com catupiry</li>
+                  <li>carne de sol com bacon</li>
+                </ul>
+              </div>
+            </div>
+          </div> */}
         </section>
       </main>
       <footer>copyright@2020</footer>

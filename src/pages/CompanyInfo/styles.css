@@ -439,6 +439,7 @@ section.company-menu {
   display: flex;
   flex-direction: column;
   padding-left: 15px;
+
 }
 
 .company-menu div.item button.item-name {
@@ -469,10 +470,19 @@ section.company-menu {
   font-size: 30px;
 }
 
-.item-details {
+.div-display {
   display: flex;
+}
+
+.div-none {
+  display: none;
+}
+
+.item-details {
+  /* display: none; */
   justify-content: space-between;
 
+  margin-bottom: 15px;
   padding: 25px;
   background: #E5E5E5;
   border-radius: 8px;
