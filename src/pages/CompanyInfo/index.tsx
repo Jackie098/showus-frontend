@@ -15,21 +15,27 @@ import './styles.css';
 const CompanyInfo = () => {
 
   const [display, setDisplay] = useState('none');
+  const [shadow, setShadow] = useState('box-shadow: 0 4px 4px rgba(0, 0, 0, .25)');
   const [icon, setIcon] = useState(<FiChevronLeft />);
+
+  const btnShadow = {
+    boxShadow: shadow,
+  };
 
   const divDisplay = {
     display: display,
-    // boxShadow: '0 4px 4px rgba(0, 0, 0, .25)',
   };
 
   function handleDisplay() {
     if (display === 'none') {
       setDisplay('flex');
       setIcon(<FiChevronDown color={'#A60000'} />);
+      setShadow('inset 4px 4px 10px rgba(0, 0, 0, .25)');
 
     } else {
       setDisplay('none')
       setIcon(<FiChevronLeft color={'#FFF'} />);
+      setShadow('0 4px 4px rgba(0, 0, 0, .25)');
     }
   }
 
@@ -129,13 +135,13 @@ const CompanyInfo = () => {
         <section className="company-menu">
           <h3>Cardápio:</h3>
           <div className="item">
-            <div
-              onClick={() => handleDisplay()}
+            <button
+              style={btnShadow}
+              onClick={() => (handleDisplay())}
               className="item-name">
               <span>pizzas</span>
-              {/* <FiChevronDown /> */}
               {icon}
-            </div>
+            </button>
             <div style={divDisplay} className="item-details">
               <div className="side-left">
                 <table className="table-size">
