@@ -43,18 +43,13 @@ const Home = () => {
     });
   }, []);
 
-  // console.log(companyCard);
+
 
   function handleClickToLinkDetails(id: number) {
-    const obj = {
-      id,
-    }
-
     try {
-      localStorage.setItem('companyId', JSON.stringify(obj));
+      localStorage.setItem('companyId', id.toString());
 
       history.push('company-details');
-
     } catch (err) {
       alert('Erro ao tentar acessar o card. Por favor, recarregue a página!');
     }

@@ -53,14 +53,10 @@ interface CompanyDetails {
   ]
 }
 
-interface ItemObjeto {
-  id: number;
-}
 
 const CompanyInfo = () => {
 
   const [company, setCompany] = useState<CompanyDetails[]>([]);
-  // const [companyId, setCompanyId] = useState<number>(24);
   const [id, setId] = useState<number>(2);
   const [display, setDisplay] = useState('none');
   const [shadow, setShadow] = useState('box-shadow: 0 4px 4px rgba(0, 0, 0, .25)');
@@ -69,9 +65,9 @@ const CompanyInfo = () => {
   const history = useHistory();
 
   useEffect(() => {
-    const item = localStorage.getItem('companyId');
+    const companyIdString = localStorage.getItem('companyId');
 
-    if (!item) {
+    if (!companyIdString) {
       alert("Ocorreu um erro ao tentar carregar a empresa, tente novamente!");
 
       history.push('/');
@@ -79,11 +75,9 @@ const CompanyInfo = () => {
       return;
     }
 
-    const itemObj: ItemObjeto = JSON.parse(item);
+    const companyId = parseInt(companyIdString);
 
-    console.log("companyID -> " + itemObj.id + "\n type-> " + typeof itemObj.id);
-
-    api.get(`detail/${itemObj.id}`).then((response) => {
+    api.get(`detail/${companyId}`).then((response) => {
 
       setCompany(response.data);
     });
