@@ -43,17 +43,20 @@ const Home = () => {
     });
   }, []);
 
-  console.log(companyCard);
+  // console.log(companyCard);
 
   function handleClickToLinkDetails(id: number) {
+    const obj = {
+      id,
+    }
+
     try {
-      localStorage.setItem('companyId', id.toString());
+      localStorage.setItem('companyId', JSON.stringify(obj));
 
       history.push('company-details');
-      return 'company-details';
+
     } catch (err) {
-      alert('Erro ao tentar acessar o card.Por favor, recarregue a página!');
-      return '/';
+      alert('Erro ao tentar acessar o card. Por favor, recarregue a página!');
     }
   }
 

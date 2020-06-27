@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import ReactDom from 'react-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
@@ -12,12 +12,82 @@ import imagePizza from '../../assets/pizza_2.jpeg';
 
 import './styles.css';
 
+import api from '../../services/api';
+
+interface CompanyDetails {
+  company: {
+    id: number;
+    name: string;
+    description: string;
+    whatsapp: string;
+    instagram: string;
+    email: string;
+  },
+  filesCompany: [
+    {
+      url: string;
+      name: string;
+      path: string;
+      size: string;
+      wallpaper: boolean;
+      createdAt: string;
+      updatedAt: string;
+    }
+  ],
+  menu: [
+    {
+      product: {
+        name: string;
+        descripton: string;
+        price: string;
+        type: {
+          name: string;
+        },
+        size: {
+          initials: string;
+          name: string;
+          description: string;
+        }
+      }
+    }
+  ]
+}
+
+interface ItemObjeto {
+  id: number;
+}
+
 const CompanyInfo = () => {
 
+  const [company, setCompany] = useState<CompanyDetails[]>([]);
+  // const [companyId, setCompanyId] = useState<number>(24);
   const [id, setId] = useState<number>(2);
   const [display, setDisplay] = useState('none');
   const [shadow, setShadow] = useState('box-shadow: 0 4px 4px rgba(0, 0, 0, .25)');
   const [icon, setIcon] = useState(<FiChevronLeft />);
+
+  const history = useHistory();
+
+  useEffect(() => {
+    const item = localStorage.getItem('companyId');
+
+    if (!item) {
+      alert("Ocorreu um erro ao tentar carregar a empresa, tente novamente!");
+
+      history.push('/');
+
+      return;
+    }
+
+    const itemObj: ItemObjeto = JSON.parse(item);
+
+    console.log("companyID -> " + itemObj.id + "\n type-> " + typeof itemObj.id);
+
+    api.get(`detail/${itemObj.id}`).then((response) => {
+
+      setCompany(response.data);
+    });
+  }, []);
 
   const btnShadow = {
     boxShadow: shadow,
@@ -77,18 +147,20 @@ const CompanyInfo = () => {
                 <h4>Informações para contato:</h4>
                 <div className="contact-datas">
                   <table>
-                    <tr>
-                      <th>telefone:</th>
-                      <td>(89) 9 9448 4332</td>
-                    </tr>
-                    <tr>
-                      <th>instagram:</th>
-                      <td>@crazypizza.oficial</td>
-                    </tr>
-                    <tr>
-                      <th>e-mail:</th>
-                      <td>crazypizza.floriano@gmail.com</td>
-                    </tr>
+                    <tbody>
+                      <tr>
+                        <th>telefone:</th>
+                        <td>(89) 9 9448 4332</td>
+                      </tr>
+                      <tr>
+                        <th>instagram:</th>
+                        <td>@crazypizza.oficial</td>
+                      </tr>
+                      <tr>
+                        <th>e-mail:</th>
+                        <td>crazypizza.floriano@gmail.com</td>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
               </div>
