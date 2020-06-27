@@ -63,6 +63,7 @@ const CompanyInfo = () => {
   const [icon, setIcon] = useState(<FiChevronLeft />);
 
   const history = useHistory();
+  const message = `Olá! Eu vim através do ShowMe e gostaria de fazer um pedido!`
 
   useEffect(() => {
     const companyIdString = localStorage.getItem('companyId');
@@ -162,8 +163,8 @@ const CompanyInfo = () => {
               </div>
               <h2>*FAZER PEDIDO*</h2>
               <div className="contact-button">
-                <Link to="/" id="btn-whatsapp">whatsapp</Link>
-                <Link to="/" id="btn-instagram">instagram</Link>
+                <a target="blank" href={`https://api.whatsapp.com/send?phone=${company?.company.whatsapp}&text=${message}`} id="btn-whatsapp">whatsapp</a>
+                <a target="blank" href={`https://www.instagram.com/${company?.company.instagram}/`} id="btn-instagram">instagram</a>
               </div>
             </div>
           </div>
