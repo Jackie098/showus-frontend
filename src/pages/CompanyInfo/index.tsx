@@ -56,7 +56,7 @@ interface CompanyDetails {
 
 const CompanyInfo = () => {
 
-  const [company, setCompany] = useState<CompanyDetails[]>([]);
+  const [company, setCompany] = useState<CompanyDetails>();
   const [id, setId] = useState<number>(2);
   const [display, setDisplay] = useState('none');
   const [shadow, setShadow] = useState('box-shadow: 0 4px 4px rgba(0, 0, 0, .25)');
@@ -80,9 +80,11 @@ const CompanyInfo = () => {
     api.get(`detail/${companyId}`).then((response) => {
 
       setCompany(response.data);
+
     });
   }, []);
 
+  console.log(company);
   const btnShadow = {
     boxShadow: shadow,
   };
@@ -131,8 +133,8 @@ const CompanyInfo = () => {
             <div className="header-company">
               <img src={logoCompany} alt="Logo da empresa" />
               <div id="logo-title">
-                <h4>Crazy Pizza</h4>
-                <span>A melhor pizza da cidade</span>
+                <h4>{company?.company.name}</h4>
+                <span>{company?.company.description}</span>
               </div>
             </div>
             <hr />
@@ -144,15 +146,15 @@ const CompanyInfo = () => {
                     <tbody>
                       <tr>
                         <th>telefone:</th>
-                        <td>(89) 9 9448 4332</td>
+                        <td>{company?.company.whatsapp}</td>
                       </tr>
                       <tr>
                         <th>instagram:</th>
-                        <td>@crazypizza.oficial</td>
+                        <td>{company?.company.instagram}</td>
                       </tr>
                       <tr>
                         <th>e-mail:</th>
-                        <td>crazypizza.floriano@gmail.com</td>
+                        <td>{company?.company.email}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -191,11 +193,13 @@ const CompanyInfo = () => {
                 )}
             >
               {/* Aparentemente, uma primeira linha sendo um comentário, remove
-                * um erro sobre "elemento não é aceito como React,child" */}
-              <img src={imagePizza} alt="Imagens dos produtos da empresa" />
-              <img src={imagePizza} alt="Imagens dos produtos da empresa" />
-              <img src={imagePizza} alt="Imagens dos produtos da empresa" />
-              <img src={imagePizza} alt="Imagens dos produtos da empresa" />
+                * um erro sobre "elemento não é aceito como React.child" */}
+              {company?.filesCompany.map(image => (
+
+                <img key={image.createdAt} src={image.url} alt="Imagens dos produtos da empresa" />
+              ))}
+
+              <img src={imagePizza}></img>
             </ Carousel>
           </div>
         </section>

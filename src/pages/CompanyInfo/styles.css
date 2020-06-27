@@ -363,6 +363,10 @@ section.company-details {
   width: 400px;
 }
 
+.image-carousel img {
+  height: 100%;
+}
+
 .slider-wrapper {
   border-radius: 24px;
 }
