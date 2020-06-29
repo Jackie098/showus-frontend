@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import ReactDom from 'react-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
@@ -14,49 +13,97 @@ import './styles.css';
 
 import api from '../../services/api';
 
-interface CompanyDetails {
+import { CompanyDetails, ItemsType, ItemPerType } from './interfaces';
+
+// interface Menu {
+//   name: string;
+//   description: string;
+//   price: number;
+//   type: string;
+//   size: {
+//     initials: string;
+//     name: string;
+//     description: string;
+//   }
+// }
+
+// interface filesCompany {
+//   url: string;
+//   name: string;
+//   path: string;
+//   size: string;
+//   wallpaper: boolean;
+//   createdAt: string;
+//   updatedAt: string;
+// }
+
+// interface Company {
+//   id: number;
+//   name: string;
+//   description: string;
+//   whatsapp: string;
+//   instagram: string;
+//   email: string;
+// }
+// interface CompanyDetails {
+//   company: Company,
+//   filesCompany: filesCompany[],
+//   menu: Menu[],
+// }
+// interface ItemsType {
+//   id: number;
+//   name: number;
+// }
+// interface ItemPerType {
+//   name: string;
+//   description: string;
+//   price: number;
+//   type: string;
+//   size: {
+//     initials: string;
+//     name: string;
+//     description: string;
+//   }
+// }
+
+const infoTemplate = {
   company: {
-    id: number;
-    name: string;
-    description: string;
-    whatsapp: string;
-    instagram: string;
-    email: string;
+    id: 0,
+    name: '',
+    description: '',
+    whatsapp: '',
+    instagram: '',
+    email: '',
   },
-  filesCompany: [
-    {
-      url: string;
-      name: string;
-      path: string;
-      size: string;
-      wallpaper: boolean;
-      createdAt: string;
-      updatedAt: string;
-    }
-  ],
+  filesCompany: [{
+    url: '',
+    name: '',
+    path: '',
+    size: 0,
+    wallpaper: false,
+    createdAt: '',
+    updatedAt: '',
+  }],
   menu: [
     {
-      product: {
-        name: string;
-        descripton: string;
-        price: string;
-        type: {
-          name: string;
-        },
-        size: {
-          initials: string;
-          name: string;
-          description: string;
-        }
-      }
+      name: '',
+      description: '',
+      price: 0,
+      type: '',
+      size: {
+        initials: '',
+        name: '',
+        description: '',
+      },
     }
   ]
 }
 
-
 const CompanyInfo = () => {
 
-  const [company, setCompany] = useState<CompanyDetails>();
+  const [company, setCompany] = useState<CompanyDetails>(infoTemplate);
+  const [type, setType] = useState<ItemsType[]>([]);
+  const [itemsPerType, setItemsPerType] = useState<ItemPerType[]>([]);
   const [id, setId] = useState<number>(2);
   const [display, setDisplay] = useState('none');
   const [shadow, setShadow] = useState('box-shadow: 0 4px 4px rgba(0, 0, 0, .25)');
@@ -83,9 +130,13 @@ const CompanyInfo = () => {
       setCompany(response.data);
 
     });
+
+    api.get(`product-type`).then((response) => {
+
+      setType(response.data);
+    })
   }, []);
 
-  console.log(company);
   const btnShadow = {
     boxShadow: shadow,
   };
@@ -107,6 +158,12 @@ const CompanyInfo = () => {
       // setId(-1);
     }
   }
+
+  // function handleItemsPerType(typeItem: string, menu: ItemPerType[]) {
+  //   const selectedItems = menu.filter(item => item.type === typeItem);
+
+  //   setItemsPerType(selectedItems);
+  // }
 
   return (
     <div className="main-container">
@@ -144,7 +201,7 @@ const CompanyInfo = () => {
                 <h4>Informações para contato:</h4>
                 <div className="contact-datas">
                   <table>
-                    <tbody>
+                    <thead>
                       <tr>
                         <th>telefone:</th>
                         <td>{company?.company.whatsapp}</td>
@@ -157,7 +214,7 @@ const CompanyInfo = () => {
                         <th>e-mail:</th>
                         <td>{company?.company.email}</td>
                       </tr>
-                    </tbody>
+                    </thead>
                   </table>
                 </div>
               </div>
@@ -207,70 +264,83 @@ const CompanyInfo = () => {
         <hr />
         <section className="company-menu">
           <h3>Cardápio:</h3>
-          <div className="item">
-            <button
-              style={btnShadow}
-              onClick={() => (handleDisplay())}
-              className="item-name">
-              <span>pizzas</span>
-              {icon}
-            </button>
-            <div className={`item-details ${id === 2 ? divDisplayed : divDisplayNone}`}>
-              <div className="side-left">
-                <table className="table-size">
-                  <tr>
-                    <th>Tamanho</th>
-                    <th></th>
-                    <th>Valor</th>
-                  </tr>
-                  <tr>
-                    <td>Pequeno</td>
-                    <td></td>
-                    <td>R$ 30,00</td>
-                  </tr>
-                  <tr>
-                    <td>Médio</td>
-                    <td></td>
-                    <td>R$ 35,00</td>
-                  </tr>
-                  <tr>
-                    <td>Grande</td>
-                    <td></td>
-                    <td>R$ 40,00</td>
-                  </tr>
-                </table>
-                <div className="extra">
-                  <h3>Informações adicionais</h3>
-                  <div>Vem com um guaraná de 2L</div>
+          {
+            type.map(type => {
+              setItemsPerType([]);
+              setItemsPerType(company.menu.filter(item => item.type === type.name))
+
+              itemsPerType.map(item => (
+                <div key={Date()} className="item">
+                  <button
+                    style={btnShadow}
+                    onClick={() => (handleDisplay())}
+                    className="item-name">
+                    <span>{item.type}</span>
+                    {icon}
+                  </button>
+                  <div className={`item-details ${id === 2 ? divDisplayed : divDisplayNone}`}>
+                    <div className="side-left">
+                      <table className="table-size">
+                        <tbody>
+                          <tr>
+                            <th>Tamanho</th>
+                            <th></th>
+                            <th>Valor</th>
+                          </tr>
+                          {item.size}<tr>
+                            <td>Pequeno</td>
+                            <td></td>
+                            <td>R$ 30,00</td>
+                          </tr>
+                          {/* <tr>
+                          <td>Médio</td>
+                          <td></td>
+                          <td>R$ 35,00</td>
+                        </tr>
+                        <tr>
+                          <td>Grande</td>
+                          <td></td>
+                          <td>R$ 40,00</td>
+                        </tr> */}
+                        </tbody>
+                      </table>
+                      <div className="extra">
+                        <h3>Informações adicionais</h3>
+                        <div>{item.description
+                          ? item.description
+                          : 'Esta item não possui nenhuma informação adicional.'}</div>
+                      </div>
+                    </div>
+                    <div className="side-right">
+                      <h4>Sabores</h4>
+                      <ul>
+                        <li>carne de sol</li>
+                        <li>calabresa</li>
+                        <li>frango com catupiry</li>
+                        <li>carne de sol com bacon</li>
+                        <li>carne de sol</li>
+                        <li>calabresa</li>
+                        <li>frango com catupiry</li>
+                        <li>carne de sol com bacon</li>
+                        <li>carne de sol</li>
+                        <li>calabresa</li>
+                        <li>frango com catupiry</li>
+                        <li>carne de sol com bacon</li>
+                        <li>carne de sol</li>
+                        <li>calabresa</li>
+                        <li>frango com catupiry</li>
+                        <li>carne de sol com bacon</li>
+                        <li>carne de sol</li>
+                        <li>calabresa</li>
+                        <li>frango com catupiry</li>
+                        <li>carne de sol com bacon</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="side-right">
-                <h4>Sabores</h4>
-                <ul>
-                  <li>carne de sol</li>
-                  <li>calabresa</li>
-                  <li>frango com catupiry</li>
-                  <li>carne de sol com bacon</li>
-                  <li>carne de sol</li>
-                  <li>calabresa</li>
-                  <li>frango com catupiry</li>
-                  <li>carne de sol com bacon</li>
-                  <li>carne de sol</li>
-                  <li>calabresa</li>
-                  <li>frango com catupiry</li>
-                  <li>carne de sol com bacon</li>
-                  <li>carne de sol</li>
-                  <li>calabresa</li>
-                  <li>frango com catupiry</li>
-                  <li>carne de sol com bacon</li>
-                  <li>carne de sol</li>
-                  <li>calabresa</li>
-                  <li>frango com catupiry</li>
-                  <li>carne de sol com bacon</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+              ))
+            })
+          }
           {/* <div className="item">
             <button
               style={btnShadow}
