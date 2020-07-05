@@ -66,6 +66,8 @@ import { CompanyDetails, ItemsType, ItemPerType } from './interfaces';
 //   }
 // }
 
+// teste.map(vetor => vetor.map(vetor2 => console.log(vetor2)));
+
 const infoTemplate = {
   company: {
     id: 0,
@@ -130,7 +132,9 @@ const CompanyInfo = () => {
       setCompany(response.data);
 
     });
+  }, []);
 
+  useEffect(() => {
     api.get(`product-type`).then((response) => {
 
       setType(response.data);
@@ -158,12 +162,6 @@ const CompanyInfo = () => {
       // setId(-1);
     }
   }
-
-  // function handleItemsPerType(typeItem: string, menu: ItemPerType[]) {
-  //   const selectedItems = menu.filter(item => item.type === typeItem);
-
-  //   setItemsPerType(selectedItems);
-  // }
 
   return (
     <div className="main-container">
@@ -265,81 +263,84 @@ const CompanyInfo = () => {
         <section className="company-menu">
           <h3>Cardápio:</h3>
           {
-            type.map(type => {
-              setItemsPerType([]);
-              setItemsPerType(company.menu.filter(item => item.type === type.name))
+            type.map(type => (
+              <div key={Date()} className="item">
+                <button
+                  style={btnShadow}
+                  onClick={() => (handleDisplay())}
+                  className="item-name">
+                  <span>{type.name}</span>
+                  {icon}
+                </button>
 
-              itemsPerType.map(item => (
-                <div key={Date()} className="item">
-                  <button
-                    style={btnShadow}
-                    onClick={() => (handleDisplay())}
-                    className="item-name">
-                    <span>{item.type}</span>
-                    {icon}
-                  </button>
-                  <div className={`item-details ${id === 2 ? divDisplayed : divDisplayNone}`}>
-                    <div className="side-left">
-                      <table className="table-size">
-                        <tbody>
-                          <tr>
-                            <th>Tamanho</th>
-                            <th></th>
-                            <th>Valor</th>
-                          </tr>
-                          {item.size}<tr>
-                            <td>Pequeno</td>
-                            <td></td>
-                            <td>R$ 30,00</td>
-                          </tr>
-                          {/* <tr>
-                          <td>Médio</td>
-                          <td></td>
-                          <td>R$ 35,00</td>
-                        </tr>
-                        <tr>
-                          <td>Grande</td>
-                          <td></td>
-                          <td>R$ 40,00</td>
-                        </tr> */}
-                        </tbody>
-                      </table>
-                      <div className="extra">
-                        <h3>Informações adicionais</h3>
-                        <div>{item.description
-                          ? item.description
-                          : 'Esta item não possui nenhuma informação adicional.'}</div>
+                {
+                  company.menu.map(item => {
+                    if (item.type === type.name) {
+                      return <div className={`item-details ${id === 2 ? divDisplayed : divDisplayNone}`}>
+                        <div className="side-left">
+                          <table className="table-size">
+                            <tbody>
+                              <tr>
+                                <th>Tamanho</th>
+                                <th></th>
+                                <th>Valor</th>
+                              </tr>
+                              {item.size}<tr>
+                                <td>Pequeno</td>
+                                <td></td>
+                                <td>R$ 30,00</td>
+                              </tr>
+                              <tr>
+                                <td>Médio</td>
+                                <td></td>
+                                <td>R$ 35,00</td>
+                              </tr>
+                              <tr>
+                                <td>Grande</td>
+                                <td></td>
+                                <td>R$ 40,00</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div className="extra">
+                            <h3>Informações adicionais</h3>
+                            <div>{item.description
+                              ? item.description
+                              : 'Esta item não possui nenhuma informação adicional.'}</div>
+                          </div>
+                        </div>
+                        <div className="side-right">
+                          <h4>Sabores</h4>
+                          <ul>
+                            <li>carne de sol</li>
+                            <li>calabresa</li>
+                            <li>frango com catupiry</li>
+                            <li>carne de sol com bacon</li>
+                            <li>carne de sol</li>
+                            <li>calabresa</li>
+                            <li>frango com catupiry</li>
+                            <li>carne de sol com bacon</li>
+                            <li>carne de sol</li>
+                            <li>calabresa</li>
+                            <li>frango com catupiry</li>
+                            <li>carne de sol com bacon</li>
+                            <li>carne de sol</li>
+                            <li>calabresa</li>
+                            <li>frango com catupiry</li>
+                            <li>carne de sol com bacon</li>
+                            <li>carne de sol</li>
+                            <li>calabresa</li>
+                            <li>frango com catupiry</li>
+                            <li>carne de sol com bacon</li>
+                          </ul>
+                        </div>
                       </div>
-                    </div>
-                    <div className="side-right">
-                      <h4>Sabores</h4>
-                      <ul>
-                        <li>carne de sol</li>
-                        <li>calabresa</li>
-                        <li>frango com catupiry</li>
-                        <li>carne de sol com bacon</li>
-                        <li>carne de sol</li>
-                        <li>calabresa</li>
-                        <li>frango com catupiry</li>
-                        <li>carne de sol com bacon</li>
-                        <li>carne de sol</li>
-                        <li>calabresa</li>
-                        <li>frango com catupiry</li>
-                        <li>carne de sol com bacon</li>
-                        <li>carne de sol</li>
-                        <li>calabresa</li>
-                        <li>frango com catupiry</li>
-                        <li>carne de sol com bacon</li>
-                        <li>carne de sol</li>
-                        <li>calabresa</li>
-                        <li>frango com catupiry</li>
-                        <li>carne de sol com bacon</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              ))
-            })
+                    }
+                  }
+                  )
+                }
+              </div>
+            ))
           }
           {/* <div className="item">
             <button
