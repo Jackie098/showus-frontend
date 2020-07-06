@@ -264,7 +264,7 @@ const CompanyInfo = () => {
           <h3>Cardápio:</h3>
           {
             type.map(type => (
-              <div key={Date()} className="item">
+              <div key={type.id} className="item">
                 <button
                   style={btnShadow}
                   onClick={() => (handleDisplay())}
