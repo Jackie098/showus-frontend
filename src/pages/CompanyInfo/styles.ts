@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface IsActive {
   readonly isActive: boolean;
+  // onClick?: () => {};
 }
 
 export const ButtonItem = styled.button<IsActive>`

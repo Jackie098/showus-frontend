@@ -209,7 +209,7 @@ div .main-layout header {
 .container-cards ul {
   display: flex;
 
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   flex-shrink: 1;
 
@@ -217,7 +217,7 @@ div .main-layout header {
   max-width: 1345px;
 
   max-height: max-content;
-  padding: 50px 120px 30px 120px;
+  padding: 50px 170px 30px 170px;
 }
 
 .container-cards ul li.each-card {

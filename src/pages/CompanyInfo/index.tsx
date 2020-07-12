@@ -17,59 +17,6 @@ import api from '../../services/api';
 
 import { CompanyDetails, ItemsType, ItemPerType } from './interfaces';
 
-// interface Menu {
-//   name: string;
-//   description: string;
-//   price: number;
-//   type: string;
-//   size: {
-//     initials: string;
-//     name: string;
-//     description: string;
-//   }
-// }
-
-// interface filesCompany {
-//   url: string;
-//   name: string;
-//   path: string;
-//   size: string;
-//   wallpaper: boolean;
-//   createdAt: string;
-//   updatedAt: string;
-// }
-
-// interface Company {
-//   id: number;
-//   name: string;
-//   description: string;
-//   whatsapp: string;
-//   instagram: string;
-//   email: string;
-// }
-// interface CompanyDetails {
-//   company: Company,
-//   filesCompany: filesCompany[],
-//   menu: Menu[],
-// }
-// interface ItemsType {
-//   id: number;
-//   name: number;
-// }
-// interface ItemPerType {
-//   name: string;
-//   description: string;
-//   price: number;
-//   type: string;
-//   size: {
-//     initials: string;
-//     name: string;
-//     description: string;
-//   }
-// }
-
-// teste.map(vetor => vetor.map(vetor2 => console.log(vetor2)));
-
 const infoTemplate = {
   company: {
     id: 0,
@@ -107,11 +54,8 @@ const CompanyInfo = () => {
 
   const [company, setCompany] = useState<CompanyDetails>(infoTemplate);
   const [type, setType] = useState<ItemsType[]>([]);
-  const [itemsPerType, setItemsPerType] = useState<ItemPerType[]>([]);
-  // const [display, setDisplay] = useState('none');
-  // const [shadow, setShadow] = useState('box-shadow: 0 4px 4px rgba(0, 0, 0, .25)');
-  const [icon, setIcon] = useState(<FiChevronLeft />);
-  const [clicked, setClicked] = useState(false);
+  // const [itemsPerType, setItemsPerType] = useState<ItemPerType[]>([]);
+  const [itemClicked, setItemClicked] = useState<number>(-1);
 
   const history = useHistory();
   const message = `Olá! Eu vim através do ShowMe e gostaria de fazer um pedido!`
@@ -144,27 +88,14 @@ const CompanyInfo = () => {
     })
   }, []);
 
-  // const styled = {
-  //   boxShadow: shadow,
-  //   display: display,
-  // }
+  function handleDisplay(id: number) {
+    if (itemClicked === id) {
+      setItemClicked(-1);
 
-  function handleDisplay() {
-    if (clicked) {
-      setClicked(false);
-    } else {
-      setClicked(true);
+      return;
     }
-    // if (display === 'none') {
-    //   setIcon(<FiChevronDown color={'#A60000'} />);
-    //   setShadow('box-shadow: inset 4px 4px 10px rgba(0, 0, 0, .25)');
-    //   setDisplay('flex');
 
-    // } else {
-    //   setIcon(<FiChevronLeft color={'#FFF'} />);
-    //   setShadow('box-shadow: 0 4px 4px rgba(0, 0, 0, .25)');
-    //   setDisplay('none');
-    // }
+    setItemClicked(id);
   }
 
   return (
@@ -268,19 +199,19 @@ const CompanyInfo = () => {
           <h3>Cardápio:</h3>
           {
             type.map(type => (
-              <div key={type.id} className="item">
+              <div key={type.id} className="items">
                 <ButtonItem
-                  onClick={handleDisplay}
-                  isActive={clicked}
+                  onClick={() => { handleDisplay(type.id) }}
+                  isActive={type.id === itemClicked}
                 >
                   <span>{type.name}</span>
-                  {clicked
+                  {type.id === itemClicked
                     ? <FiChevronDown />
                     : <FiChevronLeft />
                   }
                 </ButtonItem>
 
-                <AreaItem isActive={clicked}>
+                <AreaItem isActive={type.id === itemClicked}>
                   <div className="side-left">
                     <table className="table-size">
                       <tbody>
@@ -289,7 +220,7 @@ const CompanyInfo = () => {
                           <th></th>
                           <th>Valor</th>
                         </tr>
-                        {"açguma coisa"}<tr>
+                        <tr>
                           <td>Pequeno</td>
                           <td></td>
                           <td>R$ 30,00</td>
@@ -339,74 +270,9 @@ const CompanyInfo = () => {
                     </ul>
                   </div>
                 </AreaItem>
-
               </div>
             ))
           }
-          {/* <div className="item">
-            <button
-              style={btnShadow}
-              onClick={() => (handleDisplay())}
-              className="item-name">
-              <span>pizzas</span>
-              {icon}
-            </button>
-            <div className={`item-details ${id === 3 ? divDisplayed : divDisplayNone}`}>
-              <div className="side-left">
-                <table className="table-size">
-                  <tr>
-                    <th>Tamanho</th>
-                    <th></th>
-                    <th>Valor</th>
-                  </tr>
-                  <tr>
-                    <td>Pequeno</td>
-                    <td></td>
-                    <td>R$ 30,00</td>
-                  </tr>
-                  <tr>
-                    <td>Médio</td>
-                    <td></td>
-                    <td>R$ 35,00</td>
-                  </tr>
-                  <tr>
-                    <td>Grande</td>
-                    <td></td>
-                    <td>R$ 40,00</td>
-                  </tr>
-                </table>
-                <div className="extra">
-                  <h3>Informações adicionais</h3>
-                  <div>Vem com um guaraná de 2L</div>
-                </div>
-              </div>
-              <div className="side-right">
-                <h4>Sabores</h4>
-                <ul>
-                  <li>carne de sol</li>
-                  <li>calabresa</li>
-                  <li>frango com catupiry</li>
-                  <li>carne de sol com bacon</li>
-                  <li>carne de sol</li>
-                  <li>calabresa</li>
-                  <li>frango com catupiry</li>
-                  <li>carne de sol com bacon</li>
-                  <li>carne de sol</li>
-                  <li>calabresa</li>
-                  <li>frango com catupiry</li>
-                  <li>carne de sol com bacon</li>
-                  <li>carne de sol</li>
-                  <li>calabresa</li>
-                  <li>frango com catupiry</li>
-                  <li>carne de sol com bacon</li>
-                  <li>carne de sol</li>
-                  <li>calabresa</li>
-                  <li>frango com catupiry</li>
-                  <li>carne de sol com bacon</li>
-                </ul>
-              </div>
-            </div>
-          </div> */}
         </section>
       </main>
       <footer>copyright@2020</footer>
