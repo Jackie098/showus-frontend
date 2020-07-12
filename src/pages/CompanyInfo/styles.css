@@ -446,12 +446,14 @@ section.company-menu {
 
 }
 
-.company-menu div.item button.item-name {
+/* .company-menu div.item button.item-name {
   background: var(--title-color);
   border: 0;
 
-  width:125px;
+  width: 100%;
+  max-width:125px;
   height: 35px;
+
   border-radius: 8px;
   margin-bottom: 10px;
 
@@ -469,31 +471,32 @@ section.company-menu {
   font-size: 18px;
 }
 
-.item-name svg {
+.item-name svg { */
   /* color: var(--primary-color); */
-  font-size: 30px;
-}
+  /* font-size: 30px; */
+/* } */
 
-.div-display {
+/* .div-display {
   display: flex;
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, .25);
 }
 
 .div-none {
   display: none;
-}
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+} */
 
-.item-details {
-  /* display: none; */
+/* .item-details {
+  display: flex;
   justify-content: space-between;
-
   margin-bottom: 15px;
   padding: 25px;
   background: #E5E5E5;
   border-radius: 8px;
   box-shadow: inset 4px 4px 10px rgba(0, 0, 0, .25);
-}
+} */
 
-.item-details div.side-left {
+div.side-left {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -574,7 +577,7 @@ section.company-menu {
 }
 
 /** LIST OF ITENS **/
-.item-details div.side-right {
+div.side-right {
   max-height: 359px;
   padding: 10px 0 5px 30px;
   margin-left: 20px;

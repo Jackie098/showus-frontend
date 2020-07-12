@@ -4,6 +4,8 @@ import { Carousel } from 'react-responsive-carousel';
 
 import { Link, useHistory } from 'react-router-dom';
 import { FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { ButtonItem, AreaItem } from './styles';
+
 
 import logo from '../../assets/logo.svg';
 import logoCompany from '../../assets/logo_company.svg';
@@ -106,10 +108,10 @@ const CompanyInfo = () => {
   const [company, setCompany] = useState<CompanyDetails>(infoTemplate);
   const [type, setType] = useState<ItemsType[]>([]);
   const [itemsPerType, setItemsPerType] = useState<ItemPerType[]>([]);
-  const [id, setId] = useState<number>(2);
-  const [display, setDisplay] = useState('none');
-  const [shadow, setShadow] = useState('box-shadow: 0 4px 4px rgba(0, 0, 0, .25)');
+  // const [display, setDisplay] = useState('none');
+  // const [shadow, setShadow] = useState('box-shadow: 0 4px 4px rgba(0, 0, 0, .25)');
   const [icon, setIcon] = useState(<FiChevronLeft />);
+  const [clicked, setClicked] = useState(false);
 
   const history = useHistory();
   const message = `Olá! Eu vim através do ShowMe e gostaria de fazer um pedido!`
@@ -130,8 +132,9 @@ const CompanyInfo = () => {
     api.get(`detail/${companyId}`).then((response) => {
 
       setCompany(response.data);
-
     });
+
+
   }, []);
 
   useEffect(() => {
@@ -141,26 +144,27 @@ const CompanyInfo = () => {
     })
   }, []);
 
-  const btnShadow = {
-    boxShadow: shadow,
-  };
-
-  const divDisplayed = display === 'flex' ? 'div-display' : 'div-none';
-  const divDisplayNone = display === 'flex' ? 'div-none' : 'div-display';
+  // const styled = {
+  //   boxShadow: shadow,
+  //   display: display,
+  // }
 
   function handleDisplay() {
-    if (display === 'none') {
-      setDisplay('flex');
-      setIcon(<FiChevronDown color={'#A60000'} />);
-      setShadow('inset 4px 4px 10px rgba(0, 0, 0, .25)');
-      // setId(id);
-
+    if (clicked) {
+      setClicked(false);
     } else {
-      setDisplay('none')
-      setIcon(<FiChevronLeft color={'#FFF'} />);
-      setShadow('0 4px 4px rgba(0, 0, 0, .25)');
-      // setId(-1);
+      setClicked(true);
     }
+    // if (display === 'none') {
+    //   setIcon(<FiChevronDown color={'#A60000'} />);
+    //   setShadow('box-shadow: inset 4px 4px 10px rgba(0, 0, 0, .25)');
+    //   setDisplay('flex');
+
+    // } else {
+    //   setIcon(<FiChevronLeft color={'#FFF'} />);
+    //   setShadow('box-shadow: 0 4px 4px rgba(0, 0, 0, .25)');
+    //   setDisplay('none');
+    // }
   }
 
   return (
@@ -265,80 +269,77 @@ const CompanyInfo = () => {
           {
             type.map(type => (
               <div key={type.id} className="item">
-                <button
-                  style={btnShadow}
-                  onClick={() => (handleDisplay())}
-                  className="item-name">
+                <ButtonItem
+                  onClick={handleDisplay}
+                  isActive={clicked}
+                >
                   <span>{type.name}</span>
-                  {icon}
-                </button>
-
-                {
-                  company.menu.map(item => {
-                    if (item.type === type.name) {
-                      return <div className={`item-details ${id === 2 ? divDisplayed : divDisplayNone}`}>
-                        <div className="side-left">
-                          <table className="table-size">
-                            <tbody>
-                              <tr>
-                                <th>Tamanho</th>
-                                <th></th>
-                                <th>Valor</th>
-                              </tr>
-                              {item.size}<tr>
-                                <td>Pequeno</td>
-                                <td></td>
-                                <td>R$ 30,00</td>
-                              </tr>
-                              <tr>
-                                <td>Médio</td>
-                                <td></td>
-                                <td>R$ 35,00</td>
-                              </tr>
-                              <tr>
-                                <td>Grande</td>
-                                <td></td>
-                                <td>R$ 40,00</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          <div className="extra">
-                            <h3>Informações adicionais</h3>
-                            <div>{item.description
-                              ? item.description
-                              : 'Esta item não possui nenhuma informação adicional.'}</div>
-                          </div>
-                        </div>
-                        <div className="side-right">
-                          <h4>Sabores</h4>
-                          <ul>
-                            <li>carne de sol</li>
-                            <li>calabresa</li>
-                            <li>frango com catupiry</li>
-                            <li>carne de sol com bacon</li>
-                            <li>carne de sol</li>
-                            <li>calabresa</li>
-                            <li>frango com catupiry</li>
-                            <li>carne de sol com bacon</li>
-                            <li>carne de sol</li>
-                            <li>calabresa</li>
-                            <li>frango com catupiry</li>
-                            <li>carne de sol com bacon</li>
-                            <li>carne de sol</li>
-                            <li>calabresa</li>
-                            <li>frango com catupiry</li>
-                            <li>carne de sol com bacon</li>
-                            <li>carne de sol</li>
-                            <li>calabresa</li>
-                            <li>frango com catupiry</li>
-                            <li>carne de sol com bacon</li>
-                          </ul>
-                        </div>
-                      </div>
-                    }
+                  {clicked
+                    ? <FiChevronDown />
+                    : <FiChevronLeft />
                   }
-                  )
-                }
+                </ButtonItem>
+
+                <AreaItem isActive={clicked}>
+                  <div className="side-left">
+                    <table className="table-size">
+                      <tbody>
+                        <tr>
+                          <th>Tamanho</th>
+                          <th></th>
+                          <th>Valor</th>
+                        </tr>
+                        {"açguma coisa"}<tr>
+                          <td>Pequeno</td>
+                          <td></td>
+                          <td>R$ 30,00</td>
+                        </tr>
+                        <tr>
+                          <td>Médio</td>
+                          <td></td>
+                          <td>R$ 35,00</td>
+                        </tr>
+                        <tr>
+                          <td>Grande</td>
+                          <td></td>
+                          <td>R$ 40,00</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div className="extra">
+                      <h3>Informações adicionais</h3>
+                      <div>{"item.description"
+                        ? "item.description"
+                        : 'Esta item não possui nenhuma informação adicional.'}</div>
+                    </div>
+                  </div>
+                  <div className="side-right">
+                    <h4>Sabores</h4>
+                    <ul>
+                      <li>carne de sol</li>
+                      <li>calabresa</li>
+                      <li>frango com catupiry</li>
+                      <li>carne de sol com bacon</li>
+                      <li>carne de sol</li>
+                      <li>calabresa</li>
+                      <li>frango com catupiry</li>
+                      <li>carne de sol com bacon</li>
+                      <li>carne de sol</li>
+                      <li>calabresa</li>
+                      <li>frango com catupiry</li>
+                      <li>carne de sol com bacon</li>
+                      <li>carne de sol</li>
+                      <li>calabresa</li>
+                      <li>frango com catupiry</li>
+                      <li>carne de sol com bacon</li>
+                      <li>carne de sol</li>
+                      <li>calabresa</li>
+                      <li>frango com catupiry</li>
+                      <li>carne de sol com bacon</li>
+                    </ul>
+                  </div>
+                </AreaItem>
+
               </div>
             ))
           }
