@@ -251,6 +251,7 @@ div .main-layout header {
 
 .container-cards .each-card div.card-company {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -258,8 +259,7 @@ div .main-layout header {
 
 .container-cards .each-card .card-company img.logo-company {
   position: absolute;
-
-  margin-top: -130px;
+  top: -25px;
   height: 45px;
   width: 45px;
 }

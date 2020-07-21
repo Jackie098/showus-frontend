@@ -94,11 +94,9 @@ const Home = () => {
           <div id="select-sort">
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label>Organizar por:</label>
-            {/* <div className="styled-select"> */}
             <select name="sort" id="sort" value="Mais recentes">
               <option value="0">Mais recentes</option>
             </select>
-            {/* </div> */}
           </div>
         </form>
       </div>
@@ -114,7 +112,6 @@ const Home = () => {
                 onClick={() => handleClickToLinkDetails(card.company.id)}
               >
                 {/*Add form here*/}
-                {/* <Link to={handleClickToLinkDetails(card.company.id)}> */}
                 <div className="card-company">
                   <img
                     src={logoCompany}

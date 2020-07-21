@@ -81,13 +81,6 @@ const CompanyInfo = () => {
 
   }, []);
 
-  // useEffect(() => {
-  //   api.get(`product-type`).then((response) => {
-
-  //     setType(response.data);
-  //   })
-  // }, []);
-
   function handleDisplay(id: string) {
     if (itemClicked === id) {
       setItemClicked('');
