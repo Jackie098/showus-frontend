@@ -15,7 +15,7 @@ import './styles.css';
 
 import api from '../../services/api';
 
-import { CompanyDetails, ItemsType, ItemPerType } from './interfaces';
+import { CompanyDetails, TypesInMenu } from './interfaces';
 
 const infoTemplate = {
   company: {
@@ -53,9 +53,8 @@ const infoTemplate = {
 const CompanyInfo = () => {
 
   const [company, setCompany] = useState<CompanyDetails>(infoTemplate);
-  const [type, setType] = useState<ItemsType[]>([]);
-  // const [itemsPerType, setItemsPerType] = useState<ItemPerType[]>([]);
-  const [itemClicked, setItemClicked] = useState<number>(-1);
+  const [typesInMenu, setTypesInMenu] = useState<TypesInMenu[]>([]);
+  const [itemClicked, setItemClicked] = useState<string>('');
 
   const history = useHistory();
   const message = `Olá! Eu vim através do ShowMe e gostaria de fazer um pedido!`
@@ -76,21 +75,22 @@ const CompanyInfo = () => {
     api.get(`detail/${companyId}`).then((response) => {
 
       setCompany(response.data);
+      setTypesInMenu(response.data.typesInMenu);
     });
 
 
   }, []);
 
-  useEffect(() => {
-    api.get(`product-type`).then((response) => {
+  // useEffect(() => {
+  //   api.get(`product-type`).then((response) => {
 
-      setType(response.data);
-    })
-  }, []);
+  //     setType(response.data);
+  //   })
+  // }, []);
 
-  function handleDisplay(id: number) {
+  function handleDisplay(id: string) {
     if (itemClicked === id) {
-      setItemClicked(-1);
+      setItemClicked('');
 
       return;
     }
@@ -198,20 +198,20 @@ const CompanyInfo = () => {
         <section className="company-menu">
           <h3>Cardápio:</h3>
           {
-            type.map(type => (
+            typesInMenu.map(type => (
               <div key={type.id} className="items">
                 <ButtonItem
-                  onClick={() => { handleDisplay(type.id) }}
-                  isActive={type.id === itemClicked}
+                  onClick={() => { handleDisplay(type.name) }}
+                  isActive={type.name === itemClicked}
                 >
                   <span>{type.name}</span>
-                  {type.id === itemClicked
+                  {type.name === itemClicked
                     ? <FiChevronDown />
                     : <FiChevronLeft />
                   }
                 </ButtonItem>
 
-                <AreaItem isActive={type.id === itemClicked}>
+                <AreaItem isActive={type.name === itemClicked}>
                   <div className="side-left">
                     <table className="table-size">
                       <tbody>

@@ -38,19 +38,7 @@ export interface CompanyDetails {
 }
 
 
-export interface ItemsType {
+export interface TypesInMenu {
   id: number;
   name: string;
-}
-
-export interface ItemPerType {
-  name: string;
-  description: string;
-  price: number;
-  type: string;
-  size: {
-    initials: string;
-    name: string;
-    description: string;
-  }
 }
