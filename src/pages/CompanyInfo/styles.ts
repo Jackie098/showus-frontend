@@ -14,6 +14,7 @@ export const ButtonItem = styled.button<IsActive>`
   height: 35px;
 
   border-radius: 8px;
+  padding-left: 10px;
   margin-bottom: 10px;
 
   display: flex;

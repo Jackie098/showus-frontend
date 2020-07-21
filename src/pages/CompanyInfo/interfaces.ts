@@ -24,11 +24,14 @@ export interface Size {
 }
 
 export interface Menu {
-  name: string;
-  description: string;
-  price: number;
-  type: string;
-  size: Size,
+  product: {
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    type: string;
+    size: Size,
+  }
 }
 
 export interface CompanyDetails {

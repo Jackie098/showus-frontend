@@ -37,14 +37,17 @@ const infoTemplate = {
   }],
   menu: [
     {
-      name: '',
-      description: '',
-      price: 0,
-      type: '',
-      size: {
-        initials: '',
+      product: {
+        id: 0,
         name: '',
         description: '',
+        price: 0,
+        type: '',
+        size: {
+          initials: '',
+          name: '',
+          description: '',
+        },
       },
     }
   ]
@@ -232,34 +235,15 @@ const CompanyInfo = () => {
                     </table>
                     <div className="extra">
                       <h3>Informações adicionais</h3>
-                      <div>{"item.description"
-                        ? "item.description"
-                        : 'Esta item não possui nenhuma informação adicional.'}</div>
+                      <div>Aqui tem alguma coisa</div>
                     </div>
                   </div>
                   <div className="side-right">
                     <h4>Sabores</h4>
                     <ul>
-                      <li>carne de sol</li>
-                      <li>calabresa</li>
-                      <li>frango com catupiry</li>
-                      <li>carne de sol com bacon</li>
-                      <li>carne de sol</li>
-                      <li>calabresa</li>
-                      <li>frango com catupiry</li>
-                      <li>carne de sol com bacon</li>
-                      <li>carne de sol</li>
-                      <li>calabresa</li>
-                      <li>frango com catupiry</li>
-                      <li>carne de sol com bacon</li>
-                      <li>carne de sol</li>
-                      <li>calabresa</li>
-                      <li>frango com catupiry</li>
-                      <li>carne de sol com bacon</li>
-                      <li>carne de sol</li>
-                      <li>calabresa</li>
-                      <li>frango com catupiry</li>
-                      <li>carne de sol com bacon</li>
+                      {company.menu.map(item => (
+                        <li key={`${item.product.id}${new Date()}`}>{item.product.name}</li>
+                      ))}
                     </ul>
                   </div>
                 </AreaItem>
