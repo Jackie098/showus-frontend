@@ -5,7 +5,6 @@ import { FiSearch, FiArrowRight } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
 import logoCompany from '../../assets/logo_company.svg';
-// import wallpaperCompany from '../../assets/wallpaper_card_company.png';
 
 import './styles.css';
 
@@ -22,28 +21,30 @@ interface CompanyCard {
     createdAt: string;
     updatedAt: string;
   };
-  filesCompany:
-  {
+  fileWallpaper: {
     url: string;
     name: string;
     path: string;
     size: string;
-    wallpaper: boolean;
-  }
+  };
+  fileLogo?: {
+    url: string;
+    name: string;
+    path: string;
+    size: string;
+  };
 }
 
 const Home = () => {
   const [companyCard, setCompanyCards] = useState<CompanyCard[]>([]);
+
   const history = useHistory();
 
   useEffect(() => {
     api.get('card').then((response) => {
-
       setCompanyCards(response.data);
     });
   }, []);
-
-
 
   function handleClickToLinkDetails(id: number) {
     try {
@@ -103,31 +104,29 @@ const Home = () => {
 
       <div className="container-cards">
         <ul>
-          {
-            companyCard.map(card => (
+          {companyCard.map((card) => (
+            <li
+              key={card.company.name}
+              className="each-card"
+              onClick={() => handleClickToLinkDetails(card.company.id)}
+            >
+              {/*Add form here*/}
+              <div className="card-company">
+                <img
+                  src={card.fileLogo?.url ? card.fileLogo.url : logoCompany}
+                  className="logo-company"
+                  alt="Logo da empresa"
+                />
+                <img
+                  src={card.fileWallpaper.url}
+                  className="wallpaper-card"
+                  alt="Papel de Parede"
+                />
+                <h3>{card.company.name}</h3>
+                <p>{card.company.description}</p>
+              </div>
 
-              <li
-                key={card.company.name}
-                className="each-card"
-                onClick={() => handleClickToLinkDetails(card.company.id)}
-              >
-                {/*Add form here*/}
-                <div className="card-company">
-                  <img
-                    src={logoCompany}
-                    className="logo-company"
-                    alt="Logo da empresa"
-                  />
-                  <img
-                    src={card.filesCompany.url}
-                    className="wallpaper-card"
-                    alt="Papel de Parede"
-                  />
-                  <h3>{card.company.name}</h3>
-                  <p>{card.company.description}</p>
-                </div>
-
-                {/* <div className="card-informations">
+              {/* <div className="card-informations">
                   <p>
                     <span>whastapp</span>
                     {card.company.whatsapp}
@@ -138,14 +137,13 @@ const Home = () => {
                   </p>
                 </div> */}
 
-                <span id="more-info">
-                  Mais informações
-                  <FiArrowRight size={18} />
-                </span>
-                {/* </Link> */}
-              </li>
-            ))
-          }
+              <span id="more-info">
+                Mais informações
+                <FiArrowRight size={18} />
+              </span>
+              {/* </Link> */}
+            </li>
+          ))}
         </ul>
       </div>
 
