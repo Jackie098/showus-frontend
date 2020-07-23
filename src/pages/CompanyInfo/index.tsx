@@ -6,9 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { ButtonItem, AreaItem } from './styles';
 
-
 import logo from '../../assets/logo.svg';
-import logoCompany from '../../assets/logo_company.svg';
 import imagePizza from '../../assets/pizza_2.jpeg';
 
 import './styles.css';
@@ -26,15 +24,30 @@ const infoTemplate = {
     instagram: '',
     email: '',
   },
-  filesCompany: [{
-    url: '',
-    name: '',
-    path: '',
-    size: 0,
-    wallpaper: false,
-    createdAt: '',
-    updatedAt: '',
-  }],
+  filesCompany: [
+    {
+      url: '',
+      name: '',
+      path: '',
+      size: 0,
+      wallpaper: false,
+      logo: false,
+      createdAt: '',
+      updatedAt: '',
+    },
+  ],
+  logoCompany: [
+    {
+      url: '',
+      name: '',
+      path: '',
+      size: 0,
+      wallpaper: false,
+      logo: false,
+      createdAt: '',
+      updatedAt: '',
+    },
+  ],
   menu: [
     {
       product: {
@@ -49,24 +62,23 @@ const infoTemplate = {
           description: '',
         },
       },
-    }
-  ]
-}
+    },
+  ],
+};
 
 const CompanyInfo = () => {
-
   const [company, setCompany] = useState<CompanyDetails>(infoTemplate);
   const [typesInMenu, setTypesInMenu] = useState<TypesInMenu[]>([]);
   const [itemClicked, setItemClicked] = useState<string>('');
 
   const history = useHistory();
-  const message = `Olá! Eu vim através do ShowMe e gostaria de fazer um pedido!`
+  const message = `Olá! Eu vim através do ShowMe e gostaria de fazer um pedido!`;
 
   useEffect(() => {
     const companyIdString = localStorage.getItem('companyId');
 
     if (!companyIdString) {
-      alert("Ocorreu um erro ao tentar carregar a empresa, tente novamente!");
+      alert('Ocorreu um erro ao tentar carregar a empresa, tente novamente!');
 
       history.push('/');
 
@@ -76,12 +88,9 @@ const CompanyInfo = () => {
     const companyId = parseInt(companyIdString);
 
     api.get(`detail/${companyId}`).then((response) => {
-
       setCompany(response.data);
       setTypesInMenu(response.data.typesInMenu);
     });
-
-
   }, []);
 
   function handleDisplay(id: string) {
@@ -118,7 +127,7 @@ const CompanyInfo = () => {
         <section className="company-details">
           <div className="information">
             <div className="header-company">
-              <img src={logoCompany} alt="Logo da empresa" />
+              <img src={company?.logoCompany[0].url} alt="Logo da empresa" />
               <div id="logo-title">
                 <h4>{company?.company.name}</h4>
                 <span>{company?.company.description}</span>
@@ -149,8 +158,20 @@ const CompanyInfo = () => {
               </div>
               <h2>*FAZER PEDIDO*</h2>
               <div className="contact-button">
-                <a target="blank" href={`https://api.whatsapp.com/send?phone=${company?.company.whatsapp}&text=${message}`} id="btn-whatsapp">whatsapp</a>
-                <a target="blank" href={`https://www.instagram.com/${company?.company.instagram}/`} id="btn-instagram">instagram</a>
+                <a
+                  target="blank"
+                  href={`https://api.whatsapp.com/send?phone=${company?.company.whatsapp}&text=${message}`}
+                  id="btn-whatsapp"
+                >
+                  whatsapp
+                </a>
+                <a
+                  target="blank"
+                  href={`https://www.instagram.com/${company?.company.instagram}/`}
+                  id="btn-instagram"
+                >
+                  instagram
+                </a>
               </div>
             </div>
           </div>
@@ -166,95 +187,99 @@ const CompanyInfo = () => {
               showArrows={false}
               autoPlay={true}
               className="carousel-container"
-              renderArrowPrev={(onClickHandle, hasPrev, label) =>
-                (
-                  <div className="btn-left" onClick={onClickHandle}>
-                    <FiChevronLeft size={35} />
-                  </div>
-                )}
-              renderArrowNext={(onClickHandle, hasNext, label) =>
-                (
-                  <div className="btn-right" onClick={onClickHandle}>
-                    <FiChevronRight size={35} />
-                  </div>
-                )}
+              renderArrowPrev={(onClickHandle, hasPrev, label) => (
+                <div className="btn-left" onClick={onClickHandle}>
+                  <FiChevronLeft size={35} />
+                </div>
+              )}
+              renderArrowNext={(onClickHandle, hasNext, label) => (
+                <div className="btn-right" onClick={onClickHandle}>
+                  <FiChevronRight size={35} />
+                </div>
+              )}
             >
               {/* Aparentemente, uma primeira linha sendo um comentário, remove
-                * um erro sobre "elemento não é aceito como React.child" */}
-              {company?.filesCompany.map(image => (
-
-                <img key={image.createdAt} src={image.url} alt="Imagens dos produtos da empresa" />
+               * um erro sobre "elemento não é aceito como React.child" */}
+              {company?.filesCompany.map((image) => (
+                <img
+                  key={image.createdAt}
+                  src={image.url}
+                  alt="Imagens dos produtos da empresa"
+                />
               ))}
 
-              <img src={imagePizza}></img>
-            </ Carousel>
+              {/* <img src={imagePizza}></img> */}
+            </Carousel>
           </div>
         </section>
         <hr />
         <section className="company-menu">
           <h3>Cardápio:</h3>
-          {
-            typesInMenu.map(type => (
-              <div key={type.id} className="items">
-                <ButtonItem
-                  onClick={() => { handleDisplay(type.name) }}
-                  isActive={type.name === itemClicked}
-                >
-                  <span>{type.name}</span>
-                  {type.name === itemClicked
-                    ? <FiChevronDown />
-                    : <FiChevronLeft />
-                  }
-                </ButtonItem>
+          {typesInMenu.map((type) => (
+            <div key={type.id} className="items">
+              <ButtonItem
+                onClick={() => {
+                  handleDisplay(type.name);
+                }}
+                isActive={type.name === itemClicked}
+              >
+                <span>{type.name}</span>
+                {type.name === itemClicked ? (
+                  <FiChevronDown />
+                ) : (
+                  <FiChevronLeft />
+                )}
+              </ButtonItem>
 
-                <AreaItem isActive={type.name === itemClicked}>
-                  <div className="side-left">
-                    <table className="table-size">
-                      <tbody>
-                        <tr>
-                          <th>Tamanho</th>
-                          <th></th>
-                          <th>Valor</th>
-                        </tr>
-                        <tr>
-                          <td>Pequeno</td>
-                          <td></td>
-                          <td>R$ 30,00</td>
-                        </tr>
-                        <tr>
-                          <td>Médio</td>
-                          <td></td>
-                          <td>R$ 35,00</td>
-                        </tr>
-                        <tr>
-                          <td>Grande</td>
-                          <td></td>
-                          <td>R$ 40,00</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <div className="extra">
-                      <h3>Informações adicionais</h3>
-                      <div>Aqui tem alguma coisa</div>
-                    </div>
+              <AreaItem isActive={type.name === itemClicked}>
+                <div className="side-left">
+                  <table className="table-size">
+                    <tbody>
+                      <tr>
+                        <th>Tamanho</th>
+                        <th></th>
+                        <th>Valor</th>
+                      </tr>
+                      <tr>
+                        <td>Pequeno</td>
+                        <td></td>
+                        <td>R$ 30,00</td>
+                      </tr>
+                      <tr>
+                        <td>Médio</td>
+                        <td></td>
+                        <td>R$ 35,00</td>
+                      </tr>
+                      <tr>
+                        <td>Grande</td>
+                        <td></td>
+                        <td>R$ 40,00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div className="extra">
+                    <h3>Informações adicionais</h3>
+                    <div>Aqui tem alguma coisa</div>
                   </div>
-                  <div className="side-right">
-                    <h4>Sabores</h4>
-                    <ul>
-                      {company.menu.map(item => (
-                        <li key={`${item.product.id}${new Date()}`}>{item.product.name}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </AreaItem>
-              </div>
-            ))
-          }
+                </div>
+                <div className="side-right">
+                  <h4>Sabores</h4>
+                  <ul>
+                    {company.menu.map((item) => (
+                      <li key={`${item.product.id}${new Date()}`}>
+                        {item.product.name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AreaItem>
+            </div>
+          ))}
         </section>
       </main>
       <footer>copyright@2020</footer>
     </div>
   );
-}
+};
 
 export default CompanyInfo;

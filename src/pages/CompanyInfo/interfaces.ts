@@ -13,6 +13,7 @@ export interface filesCompany {
   path: string;
   size: number;
   wallpaper: boolean;
+  logo: boolean;
   createdAt: string;
   updatedAt: string;
 }
@@ -30,16 +31,16 @@ export interface Menu {
     description: string;
     price: number;
     type: string;
-    size: Size,
-  }
+    size: Size;
+  };
 }
 
 export interface CompanyDetails {
-  company: Company,
-  filesCompany: filesCompany[],
-  menu: Menu[],
+  company: Company;
+  filesCompany: filesCompany[];
+  logoCompany: filesCompany[];
+  menu: Menu[];
 }
-
 
 export interface TypesInMenu {
   id: number;
