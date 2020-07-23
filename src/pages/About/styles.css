@@ -2,7 +2,7 @@ div.main-layout {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+}/*
 
 div .main-layout header {
   width: 100%;
@@ -74,7 +74,7 @@ div .main-layout header {
 .main-layout header div.for-contact a:hover {
   background: #fEfEfE;
   box-shadow: none;
-}
+} */
 
 main#about {
   /* width: 750px; */

@@ -1,4 +1,4 @@
-div .main-layout header {
+/* div .main-layout header {
   width: 100%;
   height: 80px;
 
@@ -69,7 +69,7 @@ div .main-layout header {
 .main-layout header div.for-contact a:hover {
   background: #fEfEfE;
   box-shadow: none;
-}
+} */
 
 .main-layout section#section-ads {
   display: flex;

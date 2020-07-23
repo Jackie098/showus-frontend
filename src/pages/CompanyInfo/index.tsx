@@ -6,6 +6,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { ButtonItem, AreaItem } from './styles';
 
+import Header from '../../components/Header';
+
 import logo from '../../assets/logo.svg';
 import imagePizza from '../../assets/pizza_2.jpeg';
 
@@ -105,24 +107,8 @@ const CompanyInfo = () => {
 
   return (
     <div className="main-container">
-      <header>
-        <div className="menu">
-          <Link to="/">
-            <img src={logo} alt="Show Us" />
-          </Link>
-          <ul>
-            <li>
-              <Link to="/">Início</Link>
-            </li>
-            <li>
-              <Link to="/about">Sobre</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="for-contact">
-          <Link to="/">Contate-nos</Link>
-        </div>
-      </header>
+      <Header logo={logo} />
+
       <main id="main-info">
         <section className="company-details">
           <div className="information">

@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiSearch, FiArrowRight } from 'react-icons/fi';
 
+import Header from '../../components/Header';
+
 import logo from '../../assets/logo.svg';
 import logoCompany from '../../assets/logo_company.svg';
 
@@ -58,24 +60,7 @@ const Home = () => {
 
   return (
     <div className="main-layout">
-      <header>
-        <div className="menu">
-          <Link to="/">
-            <img src={logo} alt="Show Us" />
-          </Link>
-          <ul>
-            <li>
-              <Link to="/">Início</Link>
-            </li>
-            <li>
-              <Link to="/about">Sobre</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="for-contact">
-          <Link to="/">Contate-nos</Link>
-        </div>
-      </header>
+      <Header logo={logo} />
 
       <section id="section-ads">
         <h4>Simples e rápido, você só precisa escolher o que quer comer!!!</h4>
