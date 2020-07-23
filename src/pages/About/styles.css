@@ -23,11 +23,9 @@ div .main-layout header {
   display: flex;
 }
 
-.main-layout header div.menu a img {
-  height: 100px;
-  width: 100px;
-  padding-top: 20px;
-  margin-right: 25px;
+.main-container header div.menu a img {
+  height: 80px;
+  width: 80px;
 }
 
 .main-layout header div.menu ul {

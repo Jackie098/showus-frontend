@@ -30,10 +30,8 @@ div .main-container header {
 }
 
 .main-container header div.menu a img {
-  height: 100px;
-  width: 100px;
-  padding-top: 20px;
-  margin-right: 25px;
+  height: 80px;
+  width: 80px;
 }
 
 .main-container header div.menu ul {
