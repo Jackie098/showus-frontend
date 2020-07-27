@@ -48,7 +48,7 @@ export const Info = styled.div`
 
     border-radius: 12px;
 
-    box-shadow: inset 10px 10px 10px black;
+    /* box-shadow: inset 10px 10px 10px black; */
   }
 
   h3 {

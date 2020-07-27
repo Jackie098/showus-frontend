@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 import logo from '../../assets/logo.svg';
 
@@ -57,7 +58,8 @@ const About = () => {
           <div className="img"></div>
         </section>
       </main>
-      <footer>copyright@2020</footer>
+
+      <Footer />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import { FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { ButtonItem, AreaItem } from './styles';
 
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 import logo from '../../assets/logo.svg';
 
@@ -262,7 +263,7 @@ const CompanyInfo = () => {
           ))}
         </section>
       </main>
-      <footer>copyright@2020</footer>
+      <Footer />
     </div>
   );
 };

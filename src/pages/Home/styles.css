@@ -1,4 +1,4 @@
-div .main-layout header {
+/* div .main-layout header {
   width: 100%;
   height: 80px;
 
@@ -10,7 +10,7 @@ div .main-layout header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+} */
 
 .container-cards {
   display: flex;
@@ -59,7 +59,7 @@ div .main-layout header {
   cursor: pointer;
 } */
 
-.container-cards .each-card div.card-company {
+/* .container-cards .each-card div.card-company {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -95,7 +95,7 @@ div .main-layout header {
   font-weight: 500;
   color: var(--text-color);
   margin-top: 3px;
-}
+} */
 
 /* .container-cards .each-card .card-informations {
   display: flex;
@@ -135,11 +135,11 @@ div .main-layout header {
   margin-bottom: -20px;
   margin-right: -18px;
 } */
-
+/*
 footer {
   font-size: 14px;
   font-weight: bold;
   color: var(--text-color);
   text-align: center;
   padding-bottom: 35px;
-}
+} */
