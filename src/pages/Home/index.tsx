@@ -1,41 +1,21 @@
 /* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { FiSearch, FiArrowRight } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
+import { FiArrowRight } from 'react-icons/fi';
 
 import Header from '../../components/Header';
+import Ads from '../../components/Ads';
+import Searcher from '../../components/Searcher';
+import EachCard from '../../components/EachCard';
 
 import logo from '../../assets/logo.svg';
-import logoCompany from '../../assets/logo_company.svg';
+// import logoCompany from '../../assets/logo_company.svg';
 
 import './styles.css';
 
 import api from '../../services/api';
 
-interface CompanyCard {
-  company: {
-    id: number;
-    name: string;
-    description: string;
-    whatsapp: string;
-    instagram: string;
-    email: string;
-    createdAt: string;
-    updatedAt: string;
-  };
-  fileWallpaper: {
-    url: string;
-    name: string;
-    path: string;
-    size: string;
-  };
-  fileLogo?: {
-    url: string;
-    name: string;
-    path: string;
-    size: string;
-  };
-}
+import { CompanyCard } from './interfaces';
 
 const Home = () => {
   const [companyCard, setCompanyCards] = useState<CompanyCard[]>([]);
@@ -62,72 +42,56 @@ const Home = () => {
     <div className="main-layout">
       <Header logo={logo} />
 
-      <section id="section-ads">
-        <h4>Simples e rápido, você só precisa escolher o que quer comer!!!</h4>
-      </section>
+      <Ads />
 
-      <div id="div-search">
-        <form>
-          <button type="submit">
-            <FiSearch size={20} />
-          </button>
-          <input
-            type="text"
-            name="company"
-            id="company"
-            placeholder="Pesquisar empresa"
-          />
-          <div id="select-sort">
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label>Organizar por:</label>
-            <select name="sort" id="sort" value="Mais recentes">
-              <option value="0">Mais recentes</option>
-            </select>
-          </div>
-        </form>
-      </div>
+      <Searcher />
 
       <div className="container-cards">
         <ul>
           {companyCard.map((card) => (
-            <li
-              key={card.company.name}
-              className="each-card"
-              onClick={() => handleClickToLinkDetails(card.company.id)}
-            >
-              {/*Add form here*/}
-              <div className="card-company">
-                <img
-                  src={card.fileLogo?.url ? card.fileLogo.url : logoCompany}
-                  className="logo-company"
-                  alt="Logo da empresa"
-                />
-                <img
-                  src={card.fileWallpaper.url}
-                  className="wallpaper-card"
-                  alt="Papel de Parede"
-                />
-                <h3>{card.company.name}</h3>
-                <p>{card.company.description}</p>
-              </div>
+            <EachCard
+              card={card}
+              id={card.company.id}
+              handleClickToLinkDetails={handleClickToLinkDetails}
+            />
+            // <li
+            //   key={card.company.name}
+            //   className="each-card"
+            //   onClick={() => handleClickToLinkDetails(card.company.id)}
+            // >
+            //   {/*Add form here*/}
+            //   <div className="card-company">
+            //     <img
+            //       src={card.fileLogo?.url ? card.fileLogo.url : logoCompany}
+            //       className="logo-company"
+            //       alt="Logo da empresa"
+            //     />
+            //     <img
+            //       src={card.fileWallpaper.url}
+            //       className="wallpaper-card"
+            //       alt="Papel de Parede"
+            //     />
+            //     <h3>{card.company.name}</h3>
+            //     <p>{card.company.description}</p>
+            //   </div>
 
-              {/* <div className="card-informations">
-                  <p>
-                    <span>whastapp</span>
-                    {card.company.whatsapp}
-                  </p>
-                  <p>
-                    <span>instagram</span>
-                    {card.company.instagram}
-                  </p>
-                </div> */}
+            //   {/* <div className="card-informations">
+            //       <p>
+            //         <span>whastapp</span>
+            //         {card.company.whatsapp}
+            //       </p>
+            //       <p>
+            //         <span>instagram</span>
+            //         {card.company.instagram}
+            //       </p>
+            //     </div> */}
 
-              <span id="more-info">
-                Mais informações
-                <FiArrowRight size={18} />
-              </span>
-              {/* </Link> */}
-            </li>
+            //   <span id="more-info">
+            //     Mais informações
+            //     <FiArrowRight size={18} />
+            //   </span>
+            //   {/* </Link> */}
+            // </li>
           ))}
         </ul>
       </div>

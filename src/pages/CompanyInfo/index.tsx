@@ -9,7 +9,6 @@ import { ButtonItem, AreaItem } from './styles';
 import Header from '../../components/Header';
 
 import logo from '../../assets/logo.svg';
-import imagePizza from '../../assets/pizza_2.jpeg';
 
 import './styles.css';
 
