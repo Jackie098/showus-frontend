@@ -2,14 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import Header from '../../components/Header';
-import Ads from '../../components/Ads';
-import Searcher from '../../components/Searcher';
-import EachCard from '../../components/EachCard';
-import Footer from '../../components/Footer';
+import Header from '../../components/UI/Header';
+import Ads from '../../components/ForHome/Ads';
+import Searcher from '../../components/ForHome/Searcher';
+import EachCard from '../../components/ForHome/EachCard';
+import Footer from '../../components/UI/Footer';
 
 import logo from '../../assets/logo.svg';
-// import logoCompany from '../../assets/logo_company.svg';
 
 import './styles.css';
 

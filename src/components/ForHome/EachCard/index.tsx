@@ -1,9 +1,9 @@
 import React from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
-import { CompanyCard } from '../../pages/Home/interfaces';
+import { CompanyCard } from '../../../pages/Home/interfaces';
 
-import logoCompany from '../../assets/logo_company.svg';
+import logoCompany from '../../../assets/logo_company.svg';
 
 import { Card, Info, MoreInfo } from './styles';
 

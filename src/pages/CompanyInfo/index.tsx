@@ -6,8 +6,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { ButtonItem, AreaItem } from './styles';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Header from '../../components/UI/Header';
+import Footer from '../../components/UI/Footer';
 
 import logo from '../../assets/logo.svg';
 
