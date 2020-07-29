@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { ButtonItem, AreaItem } from './styles';
 
 import Header from '../../components/UI/Header';
+import Info from '../../components/ForCompanyInfo/Info';
 import Footer from '../../components/UI/Footer';
 
 import logo from '../../assets/logo.svg';
@@ -111,7 +112,8 @@ const CompanyInfo = () => {
 
       <main id="main-info">
         <section className="company-details">
-          <div className="information">
+          <Info company={company} message={message} />
+          {/* <div className="information">
             <div className="header-company">
               <img src={company?.logoCompany[0].url} alt="Logo da empresa" />
               <div id="logo-title">
@@ -160,7 +162,7 @@ const CompanyInfo = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="image-carousel">
             <Carousel
               interval={8000}
