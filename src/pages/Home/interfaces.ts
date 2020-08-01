@@ -22,3 +22,9 @@ export interface CompanyCard {
     size: string;
   };
 }
+
+export interface Sorter {
+  id: number;
+  name: string;
+  description: string;
+}

@@ -113,56 +113,7 @@ const CompanyInfo = () => {
       <main id="main-info">
         <section className="company-details">
           <Info company={company} message={message} />
-          {/* <div className="information">
-            <div className="header-company">
-              <img src={company?.logoCompany[0].url} alt="Logo da empresa" />
-              <div id="logo-title">
-                <h4>{company?.company.name}</h4>
-                <span>{company?.company.description}</span>
-              </div>
-            </div>
-            <hr />
-            <div className="contact">
-              <div className="contact-string">
-                <h4>Informações para contato:</h4>
-                <div className="contact-datas">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>telefone:</th>
-                        <td>{company?.company.whatsapp}</td>
-                      </tr>
-                      <tr>
-                        <th>instagram:</th>
-                        <td>{company?.company.instagram}</td>
-                      </tr>
-                      <tr>
-                        <th>e-mail:</th>
-                        <td>{company?.company.email}</td>
-                      </tr>
-                    </thead>
-                  </table>
-                </div>
-              </div>
-              <h2>*FAZER PEDIDO*</h2>
-              <div className="contact-button">
-                <a
-                  target="blank"
-                  href={`https://api.whatsapp.com/send?phone=${company?.company.whatsapp}&text=${message}`}
-                  id="btn-whatsapp"
-                >
-                  whatsapp
-                </a>
-                <a
-                  target="blank"
-                  href={`https://www.instagram.com/${company?.company.instagram}/`}
-                  id="btn-instagram"
-                >
-                  instagram
-                </a>
-              </div>
-            </div>
-          </div> */}
+
           <div className="image-carousel">
             <Carousel
               interval={8000}

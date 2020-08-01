@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Header from '../../components/UI/Header';
@@ -14,16 +14,31 @@ import './styles.css';
 
 import api from '../../services/api';
 
-import { CompanyCard } from './interfaces';
+import { CompanyCard, Sorter } from './interfaces';
+
+// const templateSorter = {
+//   id: 0,
+//   name: '',
+//   description:'',
+// }
 
 const Home = () => {
   const [companyCard, setCompanyCards] = useState<CompanyCard[]>([]);
+  const [sorter, setSorters] = useState<Sorter[]>([]);
+
+  const [selectedSorter, setSelectedSorter] = useState('');
 
   const history = useHistory();
 
   useEffect(() => {
     api.get('card').then((response) => {
       setCompanyCards(response.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    api.get('sorter').then((response) => {
+      setSorters(response.data);
     });
   }, []);
 
@@ -37,13 +52,23 @@ const Home = () => {
     }
   }
 
+  function handleSelectedSort(event: ChangeEvent<HTMLSelectElement>) {
+    const sort = event.target.value;
+
+    setSelectedSorter(sort);
+  }
+
   return (
     <div className="main-layout">
       <Header logo={logo} />
 
       <Ads />
 
-      <Searcher />
+      <Searcher
+        sorter={sorter}
+        selectedSorter={selectedSorter}
+        handleSelectedSort={handleSelectedSort}
+      />
 
       <div className="container-cards">
         <ul>

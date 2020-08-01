@@ -12,74 +12,94 @@ export const Container = styled.div`
 
 export const SeachForm = styled.form`
   margin-left: 50px;
-  width: 520px;
-  max-width: 550px;
+  width: 600px;
+  /* max-width: 650px; */
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 
-  button {
-    height: 33px;
-    width: 33px;
-    padding: 5px;
-
-    background: var(--primary-color);
-    border: 1px solid var(--container-color);
-    border-radius: 8px;
-
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-
-    &:hover {
-      box-shadow: none;
-      cursor: pointer;
-      border: 1px solid var(--primary-color);
-    }
-
-    svg {
-      color: white;
+  @media only screen and (max-width: 620px) {
+    & {
+      margin-left: 25px;
     }
   }
 
-  input {
-    height: 33px;
-    padding-left: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
+  div:first-child {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
 
-    flex-shrink: 1;
+    button {
+      height: 33px;
+      width: 33px;
+      padding: 5px;
 
-    background: var(--container-color);
+      background: var(--primary-color);
+      border: 1px solid var(--container-color);
+      border-radius: 8px;
 
-    border: none;
-    border-radius: 8px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-color);
+      &:hover {
+        box-shadow: none;
+        cursor: pointer;
+        border: 1px solid var(--primary-color);
+      }
 
-    &::-webkit-input-placeholder {
+      svg {
+        color: white;
+      }
+    }
+
+    input {
+      height: 33px;
+      padding-left: 15px;
+      /* margin-left: 10px;
+      margin-right: 10px; */
+
+      flex-shrink: 1;
+
+      background: var(--container-color);
+
+      border: none;
+      border-radius: 8px;
+
       font-size: 14px;
       font-weight: 500;
-      color: #bdbdbd;
-    }
+      color: var(--text-color);
 
-    &:focus {
-      border: 1px solid var(--primary-color);
+      &::-webkit-input-placeholder {
+        font-size: 14px;
+        font-weight: 500;
+        color: #bdbdbd;
+      }
+
+      &:focus {
+        border: 1px solid var(--primary-color);
+      }
     }
   }
 
-  div {
+  div:last-child {
     display: flex;
     align-items: center;
+    max-width: 300px;
+
+    @media only screen and (max-width: 620px) {
+      & {
+        margin-left: 15px;
+      }
+    }
 
     label {
       font-size: 14px;
       font-weight: bold;
       color: var(--text-color);
-      margin-right: 10px;
+      /* margin: 0 10px; */
+      width: 200px;
 
-      @media only screen and (max-width: 550px) {
+      @media only screen and (max-width: 610px) {
         & {
           display: none;
         }
@@ -99,6 +119,12 @@ export const SeachForm = styled.form`
       border-radius: 8px;
 
       padding-left: 15px;
+
+      @media only screen and (max-width: 620px) {
+        & {
+          width: 180px;
+        }
+      }
 
       &::-webkit-select-placeholder {
         font-size: 14px;

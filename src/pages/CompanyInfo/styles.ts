@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 interface IsActive {
   readonly isActive: boolean;
-  // onClick?: () => {};
 }
 
 export const ButtonItem = styled.button<IsActive>`
@@ -10,7 +9,7 @@ export const ButtonItem = styled.button<IsActive>`
   border: 0;
 
   width: 100%;
-  max-width:125px;
+  max-width: 125px;
   height: 35px;
 
   border-radius: 8px;
@@ -22,13 +21,13 @@ export const ButtonItem = styled.button<IsActive>`
   justify-content: space-around;
 
   cursor: pointer;
-  box-shadow: ${props => props.isActive
-    ? css`inset 4px 4px 10px rgba(0, 0, 0, .25)`
-    : css`0 4px 4px rgba(0, 0, 0, .25)`
-  };
+  box-shadow: ${(props) =>
+    props.isActive
+      ? css`inset 4px 4px 10px rgba(0, 0, 0, .25)`
+      : css`0 4px 4px rgba(0, 0, 0, .25)`};
 
   span {
-    color: #FFF;
+    color: #fff;
     font-weight: 500;
     font-size: 18px;
   }
@@ -37,21 +36,19 @@ export const ButtonItem = styled.button<IsActive>`
     font-size: 30px;
 
     polyline {
-      color: ${props => props.isActive ? css`var(--primary-color)` : css`#FFF`}
+      color: ${(props) =>
+        props.isActive ? css`var(--primary-color)` : css`#FFF`};
     }
   }
 `;
 
 export const AreaItem = styled.div<IsActive>`
-  display: ${props => props.isActive
-    ? css`flex`
-    : css`none`
-  };
+  display: ${(props) => (props.isActive ? css`flex` : css`none`)};
 
   justify-content: space-between;
   margin-bottom: 15px;
   padding: 25px;
-  background: #E5E5E5;
+  background: #e5e5e5;
   border-radius: 8px;
-  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, .25);
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.25);
 `;
