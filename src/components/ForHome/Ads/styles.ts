@@ -19,4 +19,10 @@ export const Container = styled.section`
     max-width: 500px;
     text-align: center;
   }
+
+  @media (max-width: 500px) {
+    & {
+      font-size: 25px;
+    }
+  }
 `;
