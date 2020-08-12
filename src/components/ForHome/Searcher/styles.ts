@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const SeachForm = styled.form`
   margin-left: 50px;
-  width: 600px;
+  max-width: 600px;
 
   display: flex;
   justify-content: space-around;
@@ -21,6 +21,20 @@ export const SeachForm = styled.form`
   @media only screen and (max-width: 620px) {
     & {
       margin-left: 25px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    & {
+      margin-left: 10px;
+      justify-content: flex-start !important;
+      width: 365px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    & {
+      margin-left: 5px;
     }
   }
 
@@ -85,18 +99,25 @@ export const SeachForm = styled.form`
         border: 1px solid var(--primary-color);
       }
     }
+
+    @media (max-width: 500px) {
+      & {
+        max-width: 235px;
+        justify-content: flex-start;
+      }
+
+      input {
+        width: 170px;
+        margin-left: 15px;
+      }
+    }
   }
 
   div:last-child {
     display: flex;
     align-items: center;
     max-width: 300px;
-
-    @media only screen and (max-width: 620px) {
-      & {
-        margin-left: 15px;
-      }
-    }
+    margin-left: 20px;
 
     label {
       font-size: 14px;
@@ -129,6 +150,18 @@ export const SeachForm = styled.form`
       @media only screen and (max-width: 620px) {
         & {
           width: 180px;
+        }
+      }
+
+      @media only screen and (max-width: 450px) {
+        & {
+          width: 150px;
+        }
+      }
+
+      @media only screen and (max-width: 400px) {
+        & {
+          width: 130px;
         }
       }
 
