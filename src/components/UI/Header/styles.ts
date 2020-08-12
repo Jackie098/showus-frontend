@@ -12,6 +12,21 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  svg {
+    display: none;
+  }
+
+  @media only screen and (max-width: 500px) {
+    & {
+      padding: 0 10px 5px 10px;
+      min-width: 360px;
+
+      svg {
+        display: inline-block;
+      }
+    }
+  }
 `;
 
 export const Menu = styled.div`
@@ -25,11 +40,11 @@ export const Menu = styled.div`
 
   ul {
     display: flex;
+    margin-left: 20px;
     justify-content: space-between;
     list-style-type: none;
 
     li {
-      margin-left: 20px;
       color: #fff;
       font-weight: bold;
 
@@ -45,6 +60,22 @@ export const Menu = styled.div`
         transition: 0.1s;
       }
     }
+
+    li:last-child {
+      margin-left: 20px;
+    }
+
+    @media only screen and (max-width: 500px) {
+      & {
+        width: 110px;
+        margin-left: 0 !important;
+        font-size: 16px;
+      }
+
+      & > li {
+        margin-left: 10px;
+      }
+    }
   }
 `;
 
@@ -53,6 +84,10 @@ export const Contact = styled.div`
     height: 40px;
     width: 110px;
     min-width: 85px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     padding: 10px;
     border-radius: 8px;
@@ -71,5 +106,21 @@ export const Contact = styled.div`
   a:hover {
     background: #fefefe;
     box-shadow: none;
+  }
+
+  @media only screen and (max-width: 500px) {
+    a {
+      width: 38px;
+      height: 38px;
+
+      svg {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    span {
+      display: none;
+    }
   }
 `;

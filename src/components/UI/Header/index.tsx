@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FiInbox } from 'react-icons/fi';
 
 // import logo from '../../assets/logo.svg';
 
@@ -26,7 +27,10 @@ const Header: React.FC<Props> = ({ logo }) => {
         </ul>
       </Menu>
       <Contact className="for-contact">
-        <Link to="/">Contate-nos</Link>
+        <Link to="/">
+          <FiInbox />
+          <span>Contate-nos</span>
+        </Link>
       </Contact>
     </Container>
   );
