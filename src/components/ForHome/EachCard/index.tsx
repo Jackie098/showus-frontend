@@ -15,7 +15,7 @@ interface Props {
 
 const EachCard: React.FC<Props> = ({ card, id, handleClickToLinkDetails }) => {
   return (
-    <Card key={card.company.name} onClick={() => handleClickToLinkDetails(id)}>
+    <Card key={id} onClick={() => handleClickToLinkDetails(id)}>
       {/*Add form here*/}
       <Info>
         <img

@@ -13,7 +13,6 @@ export const Container = styled.div`
 export const SeachForm = styled.form`
   margin-left: 50px;
   width: 600px;
-  /* max-width: 650px; */
 
   display: flex;
   justify-content: space-around;
@@ -44,7 +43,15 @@ export const SeachForm = styled.form`
       &:hover {
         box-shadow: none;
         cursor: pointer;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        opacity: 0.8;
+      }
+
+      &:active {
+        box-shadow: none;
+        cursor: pointer;
         border: 1px solid var(--primary-color);
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
       }
 
       svg {
@@ -55,12 +62,11 @@ export const SeachForm = styled.form`
     input {
       height: 33px;
       padding-left: 15px;
-      /* margin-left: 10px;
-      margin-right: 10px; */
 
       flex-shrink: 1;
 
       background: var(--container-color);
+      box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.25);
 
       border: none;
       border-radius: 8px;

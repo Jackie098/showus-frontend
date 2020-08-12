@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Header from '../../components/UI/Header';
@@ -16,16 +16,16 @@ import api from '../../services/api';
 
 import { CompanyCard, Sorter } from './interfaces';
 
-// const templateSorter = {
-//   id: 0,
-//   name: '',
-//   description:'',
-// }
+const formTemplate = {
+  inputSort: '',
+  selectSort: '',
+};
 
 const Home = () => {
   const [companyCard, setCompanyCards] = useState<CompanyCard[]>([]);
   const [sorter, setSorters] = useState<Sorter[]>([]);
 
+  const [formData, setFormDatas] = useState(formTemplate);
   const [selectedSorter, setSelectedSorter] = useState('');
 
   const history = useHistory();
@@ -52,21 +52,42 @@ const Home = () => {
     }
   }
 
-  function handleSelectedSort(event: ChangeEvent<HTMLSelectElement>) {
-    const sort = event.target.value;
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target;
 
-    setSelectedSorter(sort);
+    setFormDatas({ ...formData, [name]: value });
+  }
+
+  async function handleSubmitSearch(event: FormEvent) {
+    event.preventDefault();
+
+    const { inputSort, selectSort } = formData;
+
+    await api
+      .get(`card?search=${inputSort}&order=${selectSort}`)
+      .then((response) => {
+        setCompanyCards(response.data);
+      });
+  }
+
+  function handleSelectedSort(event: ChangeEvent<HTMLSelectElement>) {
+    const sort = event.target;
+
+    setSelectedSorter(sort.value);
+
+    setFormDatas({ ...formData, [sort.name]: sort.value });
   }
 
   return (
     <div className="main-layout">
       <Header logo={logo} />
-
       <Ads />
 
       <Searcher
         sorter={sorter}
         selectedSorter={selectedSorter}
+        handleSubmitSearch={handleSubmitSearch}
+        handleInputChange={handleInputChange}
         handleSelectedSort={handleSelectedSort}
       />
 
