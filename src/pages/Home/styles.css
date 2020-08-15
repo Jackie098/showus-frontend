@@ -16,4 +16,10 @@
   padding: 50px 170px 30px 170px;
 }
 
-
+@media (max-width: 960px) {
+  ul {
+    align-items: center;
+    justify-content: center !important;
+    /* transition: 2s; */
+  }
+}

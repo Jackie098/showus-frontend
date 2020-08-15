@@ -26,6 +26,11 @@ export const Card = styled.li`
 
     cursor: pointer;
   }
+
+  @media (max-width: 400px) {
+    width: 85%;
+    height: 22%;
+  }
 `;
 
 export const Info = styled.div`
@@ -40,6 +45,11 @@ export const Info = styled.div`
     top: -25px;
     height: 45px;
     width: 45px;
+
+    @media (max-width: 400px) {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   img.walpaper {
@@ -48,6 +58,10 @@ export const Info = styled.div`
 
     border-radius: 12px;
 
+    @media (max-width: 400px) {
+      width: 200px;
+      height: 160px;
+    }
     /* box-shadow: inset 10px 10px 10px black; */
   }
 
@@ -56,6 +70,10 @@ export const Info = styled.div`
     font-weight: bold;
     color: var(--title-color);
     margin-top: 15px;
+
+    @media (max-width: 400px) {
+      font-size: 18px;
+    }
   }
 
   p {
@@ -65,6 +83,11 @@ export const Info = styled.div`
     font-weight: 500;
     color: var(--text-color);
     margin-top: 3px;
+
+    @media (max-width: 400px) {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
   }
 `;
 
@@ -84,4 +107,8 @@ export const MoreInfo = styled.span`
 
   margin-bottom: -20px;
   margin-right: -18px;
+
+  @media (max-width: 400px) {
+    font-size: 10px;
+  }
 `;
