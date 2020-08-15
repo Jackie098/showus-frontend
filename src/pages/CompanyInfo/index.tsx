@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { ButtonItem, AreaItem } from './styles';
 
@@ -74,7 +74,7 @@ const CompanyInfo = () => {
   const [typesInMenu, setTypesInMenu] = useState<TypesInMenu[]>([]);
   const [itemClicked, setItemClicked] = useState<string>('');
 
-  const history = useHistory();
+  // const history = useHistory();
   const message = `Olá! Eu vim através do ShowMe e gostaria de fazer um pedido!`;
 
   useEffect(() => {
@@ -83,7 +83,7 @@ const CompanyInfo = () => {
     if (!companyIdString) {
       alert('Ocorreu um erro ao tentar carregar a empresa, tente novamente!');
 
-      history.push('/');
+      // history.push('/');
 
       return;
     }

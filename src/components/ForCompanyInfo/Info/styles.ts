@@ -3,12 +3,32 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow: 0.5;
+  /* flex-grow: 0.5; */
   flex-basis: 500px;
 
   hr {
     border: 0.3px solid #c5c5c5;
   }
+
+  @media (max-width: 960px) {
+    flex-basis: 450px;
+  }
+
+  @media (max-width: 900px) {
+    flex-basis: 400px;
+  }
+
+  @media (max-width: 800px) {
+    flex-basis: 350px;
+  }
+
+  @media (max-width: 800px) {
+    flex-basis: 350px;
+  }
+
+  /* @media (max-width: 700px) {
+    margin: 0;
+  } */
 `;
 
 export const HeaderCompany = styled.div`
@@ -49,6 +69,28 @@ export const HeaderCompany = styled.div`
       font-weight: 500;
       font-size: 18px;
     }
+  }
+
+  @media (max-width: 800px) {
+    justify-content: center !important;
+    align-items: center !important;
+
+    h4 {
+      font-size: 20px !important;
+    }
+
+    span {
+      font-size: 14px !important;
+    }
+
+    img {
+      width: 55px;
+      height: 65px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    padding: 10px;
   }
 `;
 
@@ -114,6 +156,10 @@ export const InfoContact = styled.div`
     font-size: 23px;
     text-align: center;
     color: var(--primary-color);
+
+    @media (max-width: 700px) {
+      font-size: 20px;
+    }
   }
 `;
 
@@ -124,6 +170,10 @@ export const AreaButton = styled.div`
 
   width: 100%;
   max-width: 350px;
+
+  @media (max-width: 700px) {
+    max-width: 330px;
+  }
 `;
 
 export const Button = styled.a`
@@ -135,6 +185,7 @@ export const Button = styled.a`
 
   justify-content: center;
   align-items: center;
+  flex-shrink: 1;
 
   border-radius: 8px;
   text-decoration: none;

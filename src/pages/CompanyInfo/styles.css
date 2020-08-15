@@ -27,6 +27,19 @@ main#main-info {
   flex-direction: column;
 }
 
+@media only screen and (max-width: 800px) {
+  main#main-info {
+    max-width: 650px;
+    flex-shrink: 1;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  main#main-info {
+    max-width: 416px;
+  }
+}
+
 section.company-details {
   /* height: 100%; */
   /* max-height: 500px; */
@@ -36,6 +49,13 @@ section.company-details {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 700px) {
+  section.company-details {
+    /* align-items: center !important;
+    justify-content: center !important; */
+  }
 }
 
 /* *
