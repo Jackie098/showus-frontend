@@ -153,7 +153,7 @@ export const SeachForm = styled.form`
         }
       }
 
-      @media only screen and (max-width: 450px) {
+      @media only screen and (max-width: 460px) {
         & {
           width: 150px;
         }

@@ -8,6 +8,7 @@ export const Container = styled.div`
 
   hr {
     border: 0.3px solid #c5c5c5;
+    width: 400px;
   }
 
   @media (max-width: 960px) {
