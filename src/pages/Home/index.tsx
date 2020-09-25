@@ -31,9 +31,12 @@ const Home = () => {
   const history = useHistory();
 
   useEffect(() => {
-    api.get('card').then((response) => {
-      setCompanyCards(response.data);
-    });
+    const { inputSort, selectSort } = formData;
+    api
+      .get(`card/?search=${inputSort}&order=${selectSort}`)
+      .then((response) => {
+        setCompanyCards(response.data);
+      });
   }, []);
 
   useEffect(() => {
@@ -62,11 +65,13 @@ const Home = () => {
     event.preventDefault();
 
     const { inputSort, selectSort } = formData;
+    console.log(formData);
 
     await api
-      .get(`card?search=${inputSort}&order=${selectSort}`)
+      .get(`card/?search=${inputSort}&order=${selectSort}`)
       .then((response) => {
         setCompanyCards(response.data);
+        console.log(response.data);
       });
   }
 
