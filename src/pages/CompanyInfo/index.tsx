@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 // import { useHistory } from 'react-router-dom';
 import { FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import { ButtonItem } from './styles';
+import { ButtonItem, MenuImg } from './styles';
 
 import Header from '../../components/UI/Header';
 import Info from '../../components/ForCompanyInfo/Info';
@@ -12,6 +12,7 @@ import AreaItem from '../../components/ForCompanyInfo/Menu';
 import Footer from '../../components/UI/Footer';
 
 import logo from '../../assets/logo.svg';
+import menu from '../../assets/menu_crazy_dog.png';
 
 import './styles.css';
 
@@ -171,11 +172,12 @@ const CompanyInfo = () => {
                 )}
               </ButtonItem>
 
-              <AreaItem
+              <MenuImg src={menu} isActive={type.name === itemClicked} />
+              {/* <AreaItem
                 company={company}
                 type={type}
                 itemClicked={itemClicked}
-              />
+              /> */}
             </div>
           ))}
         </section>
