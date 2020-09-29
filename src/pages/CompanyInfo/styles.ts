@@ -44,6 +44,15 @@ export const ButtonItem = styled.button<IsActive>`
 
 export const MenuImg = styled.img<IsActive>`
   display: ${(props) => (props.isActive ? css`flex` : css`none`)};
+  height: 800px;
+  border-radius: 14px;
+
+  max-width: 100%;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.3);
+  }
 `;
 // export const AreaItem = styled.div<IsActive>`
 //   display: ${(props) => (props.isActive ? css`flex` : css`none`)};

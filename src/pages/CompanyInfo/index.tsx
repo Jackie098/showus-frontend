@@ -172,7 +172,9 @@ const CompanyInfo = () => {
                 )}
               </ButtonItem>
 
-              <MenuImg src={menu} isActive={type.name === itemClicked} />
+              <div id="image-central">
+                <MenuImg src={menu} isActive={type.name === itemClicked} />
+              </div>
               {/* <AreaItem
                 company={company}
                 type={type}

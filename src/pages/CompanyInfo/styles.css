@@ -223,6 +223,11 @@ section.company-menu {
 
 }
 
+#image-central {
+  display: flex;
+  justify-content: center;
+}
+
 /* .company-menu div.item button.item-name {
   background: var(--title-color);
   border: 0;
