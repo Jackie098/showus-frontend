@@ -4,10 +4,11 @@ import { Carousel } from 'react-responsive-carousel';
 
 // import { useHistory } from 'react-router-dom';
 import { FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import { ButtonItem, AreaItem } from './styles';
+import { ButtonItem } from './styles';
 
 import Header from '../../components/UI/Header';
 import Info from '../../components/ForCompanyInfo/Info';
+import AreaItem from '../../components/ForCompanyInfo/Menu';
 import Footer from '../../components/UI/Footer';
 
 import logo from '../../assets/logo.svg';
@@ -170,48 +171,11 @@ const CompanyInfo = () => {
                 )}
               </ButtonItem>
 
-              <AreaItem isActive={type.name === itemClicked}>
-                <div className="side-left">
-                  <table className="table-size">
-                    <tbody>
-                      <tr>
-                        <th>Tamanho</th>
-                        <th></th>
-                        <th>Valor</th>
-                      </tr>
-                      <tr>
-                        <td>Pequeno</td>
-                        <td></td>
-                        <td>R$ 30,00</td>
-                      </tr>
-                      <tr>
-                        <td>Médio</td>
-                        <td></td>
-                        <td>R$ 35,00</td>
-                      </tr>
-                      <tr>
-                        <td>Grande</td>
-                        <td></td>
-                        <td>R$ 40,00</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div className="extra">
-                    <h3>Informações adicionais</h3>
-                    <div>Aqui tem alguma coisa</div>
-                  </div>
-                </div>
-                <div className="side-right">
-                  <h4>Sabores</h4>
-                  <ul>
-                    {company.menu.map((item) => (
-                      <li key={`${item.product.id}${new Date()}`}>
-                        {item.product.name}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </AreaItem>
+              <AreaItem
+                company={company}
+                type={type}
+                itemClicked={itemClicked}
+              />
             </div>
           ))}
         </section>
