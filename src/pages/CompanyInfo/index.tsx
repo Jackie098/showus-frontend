@@ -37,6 +37,7 @@ const infoTemplate = {
       size: 0,
       wallpaper: false,
       logo: false,
+      menu: false,
       createdAt: '',
       updatedAt: '',
     },
@@ -49,6 +50,7 @@ const infoTemplate = {
       size: 0,
       wallpaper: false,
       logo: false,
+      menu: false,
       createdAt: '',
       updatedAt: '',
     },
@@ -140,16 +142,19 @@ const CompanyInfo = () => {
               )}
             >
               {/* Aparentemente, uma primeira linha sendo um comentário, remove
-               * um erro sobre "elemento não é aceito como React.child" */}
-              {company?.filesCompany.map((image) => (
-                <img
-                  key={image.createdAt}
-                  src={image.url}
-                  alt="Imagens dos produtos da empresa"
-                />
-              ))}
-
-              {/* <img src={imagePizza}></img> */}
+               * um erro sobre "elemento nãmpany?.filesCompany.map((image) =>
+               ( */}
+              {company?.filesCompany.map((image) => {
+                if (!image.menu) {
+                  return (
+                    <img
+                      key={image.createdAt}
+                      src={image.url}
+                      alt="Imagens dos produtos da empresa"
+                    />
+                  );
+                }
+              })}
             </Carousel>
           </div>
         </section>

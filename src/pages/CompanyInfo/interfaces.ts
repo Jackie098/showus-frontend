@@ -14,6 +14,7 @@ export interface filesCompany {
   size: number;
   wallpaper: boolean;
   logo: boolean;
+  menu: boolean;
   createdAt: string;
   updatedAt: string;
 }
