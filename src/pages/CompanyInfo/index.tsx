@@ -179,14 +179,6 @@ const CompanyInfo = () => {
                   )}
                 </ButtonItem>
 
-                {/**
-                 *
-                 * PAREI AQUI!!!!
-                 *
-                 * Preciso criar outra tabela para direcionar as imagens do menu
-                 * a um tipo específico de alimento
-                 * 'if menu==true && type.name == image.type'
-                 */}
                 <div id="image-central">
                   {company?.filesCompany.map((image) => {
                     if (

@@ -225,58 +225,9 @@ section.company-menu {
 
 #image-central {
   display: flex;
-  justify-content: center;
-}
-
-/* .company-menu div.item button.item-name {
-  background: var(--title-color);
-  border: 0;
-
-  width: 100%;
-  max-width:125px;
-  height: 35px;
-
-  border-radius: 8px;
-  margin-bottom: 10px;
-
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-
-  cursor: pointer;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
 }
-
-.item-name span {
-  color: #FFF;
-  font-weight: 500;
-  font-size: 18px;
-}
-
-.item-name svg { */
-  /* color: var(--primary-color); */
-  /* font-size: 30px; */
-/* } */
-
-/* .div-display {
-  display: flex;
-  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, .25);
-}
-
-.div-none {
-  display: none;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
-} */
-
-/* .item-details {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-  padding: 25px;
-  background: #E5E5E5;
-  border-radius: 8px;
-  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, .25);
-} */
 
 div.side-left {
   flex-grow: 1;
