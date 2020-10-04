@@ -38,6 +38,7 @@ const infoTemplate = {
       wallpaper: false,
       logo: false,
       menu: false,
+      menu_type: undefined,
       createdAt: '',
       updatedAt: '',
     },
@@ -161,32 +162,55 @@ const CompanyInfo = () => {
         <hr />
         <section className="company-menu">
           <h3>Cardápio:</h3>
-          {typesInMenu.map((type) => (
-            <div key={type.id} className="items">
-              <ButtonItem
-                onClick={() => {
-                  handleDisplay(type.name);
-                }}
-                isActive={type.name === itemClicked}
-              >
-                <span>{type.name}</span>
-                {type.name === itemClicked ? (
-                  <FiChevronDown />
-                ) : (
-                  <FiChevronLeft />
-                )}
-              </ButtonItem>
+          {typesInMenu.map((type) => {
+            return (
+              <div key={type.id} className="items">
+                <ButtonItem
+                  onClick={() => {
+                    handleDisplay(type.name);
+                  }}
+                  isActive={type.name === itemClicked}
+                >
+                  <span>{type.name}</span>
+                  {type.name === itemClicked ? (
+                    <FiChevronDown />
+                  ) : (
+                    <FiChevronLeft />
+                  )}
+                </ButtonItem>
 
-              <div id="image-central">
-                <MenuImg src={menu} isActive={type.name === itemClicked} />
-              </div>
-              {/* <AreaItem
+                {/**
+                 *
+                 * PAREI AQUI!!!!
+                 *
+                 * Preciso criar outra tabela para direcionar as imagens do menu
+                 * a um tipo específico de alimento
+                 * 'if menu==true && type.name == image.type'
+                 */}
+                <div id="image-central">
+                  {company?.filesCompany.map((image) => {
+                    if (
+                      image.menu &&
+                      image.menu_type &&
+                      image.menu_type === type.id
+                    ) {
+                      return (
+                        <MenuImg
+                          src={image.url}
+                          isActive={type.name === itemClicked}
+                        />
+                      );
+                    }
+                  })}
+                </div>
+                {/* <AreaItem
                 company={company}
                 type={type}
                 itemClicked={itemClicked}
               /> */}
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </section>
       </main>
       <Footer />
